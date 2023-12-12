@@ -125,7 +125,7 @@ orientation = 0
 [node name="Hyperdrive" type="Node3D"]
 
 [node name="Blue Stars" type="GPUParticles3D" parent="."]
-amount = 100
+amount = 150
 lifetime = 5.0
 speed_scale = 2.0
 fixed_fps = 60
@@ -133,7 +133,7 @@ process_material = SubResource("ParticleProcessMaterial_ch4m0")
 draw_pass_1 = SubResource("PlaneMesh_hae6h")
 
 [node name="Blue Stars2" type="GPUParticles3D" parent="."]
-amount = 50
+amount = 100
 lifetime = 5.0
 speed_scale = 2.0
 fixed_fps = 60

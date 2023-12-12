@@ -13,7 +13,8 @@ glow_enabled = true
 glow_blend_mode = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
-albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1mtlo"]
 material = SubResource("StandardMaterial3D_njwlo")
@@ -53,4 +54,3 @@ visible = false
 [node name="Shield" parent="." instance=ExtResource("5_iqqai")]
 
 [node name="Sparks2" parent="." instance=ExtResource("6_n8y86")]
-visible = false

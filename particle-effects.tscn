@@ -1,67 +1,56 @@
-[gd_scene load_steps=12 format=3 uid="uid://chomobsn1vdo4"]
+[gd_scene load_steps=10 format=3 uid="uid://chomobsn1vdo4"]
 
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
-[ext_resource type="Script" path="res://scripts/MultiParticles.cs" id="4_r2q8n"]
-[ext_resource type="Texture2D" uid="uid://iupf6jfowd7a" path="res://addons/kenney_particle_pack/trace_01.png" id="5_gi642"]
+[ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
+[ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
+[ext_resource type="PackedScene" uid="uid://ck5vuhi3tffgl" path="res://particles/sparks.tscn" id="6_n8y86"]
 
 [sub_resource type="Environment" id="Environment_2s5er"]
 background_mode = 1
 glow_enabled = true
 glow_blend_mode = 4
 
-[sub_resource type="Curve" id="Curve_7hdxo"]
-_data = [Vector2(0, 0.286562), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
+albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
 
-[sub_resource type="CurveTexture" id="CurveTexture_2ewy8"]
-curve = SubResource("Curve_7hdxo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ch4m0"]
-particle_flag_align_y = true
-direction = Vector3(2.08165e-12, 1, 2.08165e-12)
-spread = 180.0
-initial_velocity_min = 1.0
-initial_velocity_max = 1.0
-gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-linear_accel_max = 2.08167e-15
-scale_curve = SubResource("CurveTexture_2ewy8")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71qg5"]
-transparency = 1
-blend_mode = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_gi642")
-billboard_keep_scale = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_hae6h"]
-material = SubResource("StandardMaterial3D_71qg5")
-orientation = 0
+[sub_resource type="PlaneMesh" id="PlaneMesh_1mtlo"]
+material = SubResource("StandardMaterial3D_njwlo")
+size = Vector2(10, 10)
 
 [node name="Particle Effects" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.395409, 0.586218, 2.89158e-16, 0.829038, 0.559193, -0.707107, -0.395409, 0.586218, 30, 30, 30)
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
 environment = SubResource("Environment_2s5er")
 current = true
 fov = 3.8
 
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_1mtlo")
+skeleton = NodePath("../Shield")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52, 0)
+size = Vector3(10, 1, 10)
+
 [node name="Smoke" parent="." instance=ExtResource("1_vs4eb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 
 [node name="Fire" parent="." instance=ExtResource("2_ua5o7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
 
 [node name="Hurricane" parent="." instance=ExtResource("3_1jf4n")]
 visible = false
 
-[node name="Hyperdrive" type="Node3D" parent="."]
+[node name="Hyperdrive" parent="." instance=ExtResource("4_waeec")]
 visible = false
-script = ExtResource("4_r2q8n")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Hyperdrive"]
-amount = 100
-lifetime = 5.0
-speed_scale = 2.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_ch4m0")
-draw_pass_1 = SubResource("PlaneMesh_hae6h")
+[node name="Shield" parent="." instance=ExtResource("5_iqqai")]
+
+[node name="Sparks2" parent="." instance=ExtResource("6_n8y86")]
+visible = false

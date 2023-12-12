@@ -1,0 +1,141 @@
+[gd_scene load_steps=23 format=3 uid="uid://ce6advdj56x0c"]
+
+[sub_resource type="Curve" id="Curve_tw16h"]
+_data = [Vector2(0.0655738, 0), 0.0, 0.0, 0, 0, Vector2(0.219672, 1), 0.0, 0.0, 0, 0, Vector2(0.678689, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_efxbu"]
+curve = SubResource("Curve_tw16h")
+
+[sub_resource type="Curve" id="Curve_q2jhs"]
+min_value = -5.0
+max_value = 5.0
+_data = [Vector2(0, 0.985545), 0.0, 0.0, 0, 0, Vector2(1, -0.893561), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h0dpm"]
+curve = SubResource("Curve_q2jhs")
+
+[sub_resource type="Curve" id="Curve_7hdxo"]
+_data = [Vector2(0, 0.286562), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ewy8"]
+curve = SubResource("Curve_7hdxo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ch4m0"]
+particle_flag_align_y = true
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+linear_accel_curve = SubResource("CurveTexture_h0dpm")
+scale_curve = SubResource("CurveTexture_2ewy8")
+color = Color(0, 0.627451, 1, 1)
+alpha_curve = SubResource("CurveTexture_efxbu")
+
+[sub_resource type="Gradient" id="Gradient_a4q3k"]
+offsets = PackedFloat32Array(0.587189, 0.644128)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_urst3"]
+gradient = SubResource("Gradient_a4q3k")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71qg5"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_urst3")
+rim_enabled = true
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hae6h"]
+material = SubResource("StandardMaterial3D_71qg5")
+size = Vector2(0.02, 1)
+orientation = 0
+
+[sub_resource type="Curve" id="Curve_yptc2"]
+_data = [Vector2(0.0655738, 0), 0.0, 0.0, 0, 0, Vector2(0.219672, 1), 0.0, 0.0, 0, 0, Vector2(0.678689, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1rkup"]
+curve = SubResource("Curve_yptc2")
+
+[sub_resource type="Curve" id="Curve_5ar4t"]
+min_value = -5.0
+max_value = 5.0
+_data = [Vector2(0, 0.985545), 0.0, 0.0, 0, 0, Vector2(1, -0.893561), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jki2s"]
+curve = SubResource("Curve_5ar4t")
+
+[sub_resource type="Curve" id="Curve_fu88q"]
+_data = [Vector2(0, 0.286562), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tbhgh"]
+curve = SubResource("Curve_fu88q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wo6sa"]
+particle_flag_align_y = true
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+linear_accel_curve = SubResource("CurveTexture_jki2s")
+scale_curve = SubResource("CurveTexture_tbhgh")
+color = Color(0.815686, 0.352941, 1, 1)
+alpha_curve = SubResource("CurveTexture_1rkup")
+
+[sub_resource type="Gradient" id="Gradient_bto3u"]
+offsets = PackedFloat32Array(0.587189, 0.644128)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d5hso"]
+gradient = SubResource("Gradient_bto3u")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suj4i"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_d5hso")
+rim_enabled = true
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7cpq2"]
+material = SubResource("StandardMaterial3D_suj4i")
+size = Vector2(0.01, 0.5)
+orientation = 0
+
+[node name="Hyperdrive" type="Node3D"]
+
+[node name="Blue Stars" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 5.0
+speed_scale = 2.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ch4m0")
+draw_pass_1 = SubResource("PlaneMesh_hae6h")
+
+[node name="Blue Stars2" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 5.0
+speed_scale = 2.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wo6sa")
+draw_pass_1 = SubResource("PlaneMesh_7cpq2")

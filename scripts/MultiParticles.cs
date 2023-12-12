@@ -1,7 +1,7 @@
-using Godot;
 using System;
+using Godot;
 
-namespace Isometric3DEngine
+namespace GodotVisualEffectsToolkit
 {
     /**
      * MultiParticles : Node3D

@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxj4cf67il71y"]
+
+[ext_resource type="Texture2D" uid="uid://cra5etg6sq1ke" path="res://addons/kenney_particle_pack/smoke_06.png" id="1_v5mjt"]
+
+[sub_resource type="Curve" id="Curve_ch0qc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qjymw"]
+curve = SubResource("Curve_ch0qc")
+
+[sub_resource type="Gradient" id="Gradient_hv3jv"]
+offsets = PackedFloat32Array(0, 0.545988, 1)
+colors = PackedColorArray(0.160269, 0.160269, 0.160269, 1, 0.696673, 0.696673, 0.696673, 1, 0.544974, 0.544974, 0.544974, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_878of"]
+gradient = SubResource("Gradient_hv3jv")
+
+[sub_resource type="Curve" id="Curve_xhlcj"]
+max_value = 5.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 4.72041), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ubqxv"]
+curve = SubResource("Curve_xhlcj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x4paj"]
+emission_shape = 6
+emission_ring_axis = Vector3(2.08165e-12, 2.08165e-12, 0.5)
+emission_ring_height = 0.1
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.0
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(2.08165e-12, 2, 2.08165e-12)
+scale_curve = SubResource("CurveTexture_ubqxv")
+color_ramp = SubResource("GradientTexture1D_878of")
+alpha_curve = SubResource("CurveTexture_qjymw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ufmo"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_v5mjt")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_njc4r"]
+material = SubResource("StandardMaterial3D_0ufmo")
+
+[node name="Smoke" type="GPUParticles3D"]
+amount = 32
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_x4paj")
+draw_pass_1 = SubResource("QuadMesh_njc4r")

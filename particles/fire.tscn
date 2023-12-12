@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4g1wgyk5ynef"]
+
+[ext_resource type="Texture2D" uid="uid://52dsxhh2k7e1" path="res://addons/kenney_particle_pack/fire_01.png" id="1_q2wt5"]
+
+[sub_resource type="Gradient" id="Gradient_eonhu"]
+offsets = PackedFloat32Array(0, 0.201566, 0.78865, 1)
+colors = PackedColorArray(0, 0.356863, 1, 1, 0.894118, 0.290196, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cmn7d"]
+gradient = SubResource("Gradient_eonhu")
+
+[sub_resource type="Curve" id="Curve_d3nfl"]
+_data = [Vector2(0, 0.897805), 0.0, 0.0, 0, 0, Vector2(0.246046, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.344408), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r6vt7"]
+curve = SubResource("Curve_d3nfl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ytneo"]
+angle_min = -30.0
+angle_max = 30.0
+gravity = Vector3(2.08165e-12, 2, 2.08165e-12)
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+scale_curve = SubResource("CurveTexture_r6vt7")
+color_ramp = SubResource("GradientTexture1D_cmn7d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d11hp"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(2, 2, 2, 1)
+albedo_texture = ExtResource("1_q2wt5")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_she6p"]
+material = SubResource("StandardMaterial3D_d11hp")
+
+[node name="Fire" type="GPUParticles3D"]
+amount = 32
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ytneo")
+draw_pass_1 = SubResource("QuadMesh_she6p")

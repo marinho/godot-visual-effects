@@ -28,6 +28,18 @@
 
 ![Rain](./docs/images/particles/rain.png)
 
+## Camera Effects
+
+These effects are mostly to be placed as a child of Camera object
+
+### Pixelate
+
+![Pixelate](./docs/images/camera-effects/pixelate.png)
+
+### Vignette (danger)
+
+![Vignette](./docs/images/camera-effects/vignette.png)
+
 ## License
 
 * Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack

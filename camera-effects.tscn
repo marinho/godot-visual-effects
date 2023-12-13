@@ -1,4 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://18cjinf3642k"]
+[gd_scene load_steps=12 format=3 uid="uid://c051w6upl0t16"]
+
+[ext_resource type="PackedScene" uid="uid://dgv546pcp176" path="res://camera-effects/camera-pixelate.tscn" id="1_1s7cw"]
+[ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
+[ext_resource type="PackedScene" uid="uid://b3fmmgvf3owwy" path="res://camera-effects/camera-vignette.tscn" id="2_c86ci"]
+[ext_resource type="PackedScene" uid="uid://bjupt5nu14hth" path="res://addons/kenney_prototype_tools/scenes/dark/dark_05.tscn" id="2_xlmfj"]
+[ext_resource type="PackedScene" uid="uid://bhuxup1cbugbw" path="res://addons/kenney_prototype_tools/scenes/orange/orange_06.tscn" id="3_xj16f"]
+[ext_resource type="PackedScene" uid="uid://ct0k1os3fx251" path="res://addons/kenney_prototype_tools/scenes/purple/purple_03.tscn" id="4_paly4"]
+[ext_resource type="PackedScene" uid="uid://d23c4qtufdpk7" path="res://addons/kenney_prototype_tools/scenes/red/red_02.tscn" id="5_dra7r"]
+[ext_resource type="PackedScene" uid="uid://npssehgc2462" path="res://addons/kenney_prototype_tools/scenes/light/light_06.tscn" id="6_y7myb"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
@@ -13,19 +22,131 @@ size = Vector2(20, 20)
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573577, -0.707107, -0.40558, 0.579228, 29.8522, 29.8536, 29.8522)
 environment = SubResource("Environment_tln01")
 projection = 1
 current = true
-fov = 3.8
-size = 3.0
+fov = 13.5
+size = 13.34
+
+[node name="Pixelate" parent="Camera3D" instance=ExtResource("1_1s7cw")]
+
+[node name="Vignette" parent="Camera3D" instance=ExtResource("2_c86ci")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
-light_energy = 3.0
+light_energy = 2.0
 
 [node name="Scene" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Scene"]
 mesh = SubResource("PlaneMesh_wx71g")
 skeleton = NodePath("../..")
+
+[node name="Cube" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="Cube2" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5)
+
+[node name="Cube3" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
+
+[node name="Cube4" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5)
+
+[node name="Cube5" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5)
+
+[node name="Cube6" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
+
+[node name="Cube7" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 4)
+
+[node name="Cube12" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+
+[node name="Cube13" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4)
+
+[node name="Cube14" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="Cube8" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
+
+[node name="Cube9" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 6)
+
+[node name="Cube10" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
+
+[node name="Cube11" parent="Scene" instance=ExtResource("4_paly4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)
+
+[node name="Cube15" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 3)
+
+[node name="Cube16" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+
+[node name="Cube17" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="Cube18" parent="Scene" instance=ExtResource("6_y7myb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+
+[node name="Cube19" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
+
+[node name="Cube20" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+
+[node name="Cube21" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -5)
+
+[node name="Cube22" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="Cube23" parent="Scene" instance=ExtResource("1_61jfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+
+[node name="Cube24" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="Cube25" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+
+[node name="Cube26" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+
+[node name="Cube27" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+
+[node name="Cube28" parent="Scene" instance=ExtResource("2_xlmfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -6)
+
+[node name="Cube29" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="Cube30" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4)
+
+[node name="Cube31" parent="Scene" instance=ExtResource("3_xj16f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+
+[node name="Cube32" parent="Scene" instance=ExtResource("4_paly4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="Cube33" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
+
+[node name="Cube34" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="Cube35" parent="Scene" instance=ExtResource("5_dra7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
+
+[node name="Cube36" parent="Scene" instance=ExtResource("6_y7myb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)

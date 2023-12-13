@@ -4,6 +4,5 @@
 background_mode = 1
 glow_enabled = true
 glow_blend_mode = 4
-fog_enabled = true
 fog_light_energy = 0.82
 fog_sun_scatter = 0.15

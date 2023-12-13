@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3fmmgvf3owwy"]
+
+[sub_resource type="Curve" id="Curve_kdxx2"]
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, 0.0, 0, 0, Vector2(0.498361, 1.28219), 0.0, 0.0, 0, 0, Vector2(1, 1.5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ts23d"]
+curve = SubResource("Curve_kdxx2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a08vp"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_ts23d")
+
+[sub_resource type="Gradient" id="Gradient_0ankm"]
+offsets = PackedFloat32Array(0.430605, 0.733096)
+colors = PackedColorArray(0, 0, 0, 0, 0.392157, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3frb"]
+gradient = SubResource("Gradient_0ankm")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8laxd"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_s3frb")
+roughness = 0.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_hh0er"]
+material = SubResource("StandardMaterial3D_8laxd")
+size = Vector2(24, 14)
+
+[node name="Vignette" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+amount = 1
+lifetime = 3.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_a08vp")
+draw_pass_1 = SubResource("QuadMesh_hh0er")

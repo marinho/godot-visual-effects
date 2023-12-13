@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://18cjinf3642k"]
+
+[sub_resource type="Environment" id="Environment_tln01"]
+glow_blend_mode = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8hyj"]
+albedo_color = Color(0.337255, 0.890196, 0.207843, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wx71g"]
+material = SubResource("StandardMaterial3D_u8hyj")
+size = Vector2(20, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
+environment = SubResource("Environment_tln01")
+projection = 1
+current = true
+fov = 3.8
+size = 3.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
+light_energy = 3.0
+
+[node name="Scene" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Scene"]
+mesh = SubResource("PlaneMesh_wx71g")
+skeleton = NodePath("../..")

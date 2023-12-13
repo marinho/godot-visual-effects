@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://npssehgc2462"]
+
+[ext_resource type="Material" uid="uid://ci8rdsdqe5a61" path="res://addons/kenney_prototype_tools/materials/light/material_06.tres" id="1_nrlam"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_orukj"]
+
+[node name="Cube" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+material_override = ExtResource("1_nrlam")
+mesh = SubResource("BoxMesh_orukj")

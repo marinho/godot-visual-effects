@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8s7ei0hpivs0"]
+
+[ext_resource type="Texture2D" uid="uid://daw1jgqtebh68" path="res://addons/kenney_prototype_tools/textures/red/texture_04.png" id="1_a7bgg"]
+
+[resource]
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_a7bgg")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

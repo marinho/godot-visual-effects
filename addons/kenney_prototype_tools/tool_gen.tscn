@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn4ahbc65y07q"]
+
+[ext_resource type="Script" path="res://tool_generator.gd" id="1_icvd2"]
+
+[node name="ToolGen" type="Node"]
+script = ExtResource("1_icvd2")

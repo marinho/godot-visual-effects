@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://sy04esp2kle1"]
+
+[ext_resource type="Shader" path="res://camera-effects/chromatic-aberration.gdshader" id="1_qe316"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bla75"]
+shader = ExtResource("1_qe316")
+shader_parameter/ca_strength = 20.0
+
+[node name="Chromatic Aberration" type="ColorRect"]
+material = SubResource("ShaderMaterial_bla75")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

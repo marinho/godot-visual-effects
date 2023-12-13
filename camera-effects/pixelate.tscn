@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djsrvtsqjesw8"]
+
+[ext_resource type="Shader" path="res://camera-effects/pixelate.gdshader" id="1_boqib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1p2bf"]
+shader = ExtResource("1_boqib")
+shader_parameter/pixel_size = 4
+shader_parameter/alpha = 1.0
+
+[node name="Pixelate" type="ColorRect"]
+material = SubResource("ShaderMaterial_1p2bf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

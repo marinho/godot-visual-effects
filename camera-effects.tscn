@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=13 format=3 uid="uid://c051w6upl0t16"]
 
-[ext_resource type="PackedScene" uid="uid://dgv546pcp176" path="res://camera-effects/camera-pixelate.tscn" id="1_1s7cw"]
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
-[ext_resource type="PackedScene" uid="uid://b3fmmgvf3owwy" path="res://camera-effects/camera-vignette.tscn" id="2_c86ci"]
 [ext_resource type="PackedScene" uid="uid://bjupt5nu14hth" path="res://addons/kenney_prototype_tools/scenes/dark/dark_05.tscn" id="2_xlmfj"]
 [ext_resource type="PackedScene" uid="uid://bhuxup1cbugbw" path="res://addons/kenney_prototype_tools/scenes/orange/orange_06.tscn" id="3_xj16f"]
 [ext_resource type="PackedScene" uid="uid://ct0k1os3fx251" path="res://addons/kenney_prototype_tools/scenes/purple/purple_03.tscn" id="4_paly4"]
 [ext_resource type="PackedScene" uid="uid://d23c4qtufdpk7" path="res://addons/kenney_prototype_tools/scenes/red/red_02.tscn" id="5_dra7r"]
 [ext_resource type="PackedScene" uid="uid://npssehgc2462" path="res://addons/kenney_prototype_tools/scenes/light/light_06.tscn" id="6_y7myb"]
+[ext_resource type="PackedScene" uid="uid://sy04esp2kle1" path="res://camera-effects/chromatic_aberration.tscn" id="7_uoado"]
+[ext_resource type="PackedScene" uid="uid://djsrvtsqjesw8" path="res://camera-effects/pixelate.tscn" id="8_fshcg"]
+[ext_resource type="PackedScene" uid="uid://ds5xw2us1br3q" path="res://camera-effects/vignette.tscn" id="9_q1phu"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
@@ -28,10 +29,6 @@ projection = 1
 current = true
 fov = 13.5
 size = 13.34
-
-[node name="Pixelate" parent="Camera3D" instance=ExtResource("1_1s7cw")]
-
-[node name="Vignette" parent="Camera3D" instance=ExtResource("2_c86ci")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
@@ -150,3 +147,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 
 [node name="Cube36" parent="Scene" instance=ExtResource("6_y7myb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Chromatic Aberration" parent="CanvasLayer" instance=ExtResource("7_uoado")]
+visible = false
+
+[node name="Pixelate" parent="CanvasLayer" instance=ExtResource("8_fshcg")]
+visible = false
+
+[node name="Vignette" parent="CanvasLayer" instance=ExtResource("9_q1phu")]

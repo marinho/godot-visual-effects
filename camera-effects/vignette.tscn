@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds5xw2us1br3q"]
+
+[ext_resource type="Shader" path="res://camera-effects/vignette.gdshader" id="1_pj8nl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1c5j"]
+shader = ExtResource("1_pj8nl")
+shader_parameter/color = Color(0.411765, 0, 0, 1)
+shader_parameter/speed = 3.0
+shader_parameter/pulse_strength = 0.1
+shader_parameter/internal_radius = 0.4
+shader_parameter/external_radius = 0.7
+
+[node name="Vignette" type="ColorRect"]
+material = SubResource("ShaderMaterial_p1c5j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

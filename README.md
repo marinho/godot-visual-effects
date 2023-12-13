@@ -30,7 +30,7 @@
 
 ## Camera Effects
 
-These effects are mostly to be placed as a child of Camera object
+These effects should be place in a CanvasLayer object in any scene
 
 ### Pixelate
 
@@ -39,6 +39,10 @@ These effects are mostly to be placed as a child of Camera object
 ### Vignette (danger)
 
 ![Vignette](./docs/images/camera-effects/vignette.png)
+
+### Chromatic Aberration
+
+![Chromatic Aberration](./docs/images/camera-effects/chromatic-aberration.png)
 
 ## License
 

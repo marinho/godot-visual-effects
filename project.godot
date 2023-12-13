@@ -15,11 +15,6 @@ run/main_scene="res://particle-effects.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=2304
-window/size/viewport_height=1296
-
 [dotnet]
 
 project/assembly_name="godot-visual-effects"

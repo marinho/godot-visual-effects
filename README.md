@@ -24,6 +24,10 @@
 
 ![Sparks](./docs/images/particles/sparks.png)
 
+### Rain
+
+![Rain](./docs/images/particles/rain.png)
+
 ## License
 
 Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack

@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://1nbihtdf4hnv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yeau7"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 0.1, 3)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.3
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="Gradient" id="Gradient_wmx1f"]
+offsets = PackedFloat32Array(0.469751, 0.647687)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c4vav"]
+gradient = SubResource("Gradient_wmx1f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isb3u"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_c4vav")
+
+[sub_resource type="QuadMesh" id="QuadMesh_r2rct"]
+material = SubResource("StandardMaterial3D_isb3u")
+size = Vector2(0.01, 0.1)
+
+[sub_resource type="Curve" id="Curve_utnjj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.501639, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vxkt7"]
+curve = SubResource("Curve_utnjj")
+
+[sub_resource type="Curve" id="Curve_jops4"]
+_data = [Vector2(0, 0.0519054), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h2jh6"]
+curve = SubResource("Curve_jops4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kmy1d"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_h2jh6")
+alpha_curve = SubResource("CurveTexture_vxkt7")
+
+[sub_resource type="Gradient" id="Gradient_oi1wo"]
+offsets = PackedFloat32Array(0.30605, 0.327402, 0.352313, 0.565836, 0.587189, 0.640569)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.380392, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lh0c0"]
+gradient = SubResource("Gradient_oi1wo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwl4w"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_lh0c0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_631li"]
+material = SubResource("StandardMaterial3D_pwl4w")
+size = Vector2(1, 1)
+
+[node name="Rain" type="Node3D"]
+
+[node name="Droplets" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+amount = 240
+sub_emitter = NodePath("../Ripples")
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_yeau7")
+draw_pass_1 = SubResource("QuadMesh_r2rct")
+
+[node name="Ripples" type="GPUParticles3D" parent="."]
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kmy1d")
+draw_pass_1 = SubResource("PlaneMesh_631li")

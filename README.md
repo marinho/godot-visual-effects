@@ -44,6 +44,14 @@ These effects should be place in a CanvasLayer object in any scene
 
 ![Chromatic Aberration](./docs/images/camera-effects/chromatic-aberration.png)
 
+### Sepia
+
+![Sepia](./docs/images/camera-effects/sepia.png)
+
+### Grain Noise
+
+![Grain Noise](./docs/images/camera-effects/grain-noise.png)
+
 ## License
 
 * Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack

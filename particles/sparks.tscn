@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck5vuhi3tffgl"]
+[gd_scene load_steps=7 format=3 uid="uid://1p0djdxytw42"]
 
 [ext_resource type="Texture2D" uid="uid://iupf6jfowd7a" path="res://addons/kenney_particle_pack/trace_01.png" id="1_au4er"]
 
 [sub_resource type="Gradient" id="Gradient_206ev"]
-offsets = PackedFloat32Array(0, 0.209386)
-colors = PackedColorArray(1, 0.8, 0, 1, 1, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.385519, 0.866928)
+colors = PackedColorArray(1, 0.8, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lfvhw"]
 gradient = SubResource("Gradient_206ev")
@@ -23,15 +23,16 @@ scale_min = 0.8
 color_ramp = SubResource("GradientTexture1D_lfvhw")
 collision_mode = 1
 collision_friction = 0.2
-collision_bounce = 0.5
+collision_bounce = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vihpm"]
 transparency = 1
 blend_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_au4er")
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 8.05
+emission_enabled = true
+emission = Color(1, 0.0705882, 0, 1)
+emission_energy_multiplier = 2.0
 rim_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_wyolc"]
@@ -41,7 +42,7 @@ size = Vector2(0.5, 0.5)
 [node name="Sparks" type="GPUParticles3D"]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
 amount = 48
-lifetime = 3.0
+lifetime = 5.0
 speed_scale = 1.5
 randomness = 0.3
 fixed_fps = 60

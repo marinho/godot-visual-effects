@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=16 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
 [ext_resource type="PackedScene" uid="uid://bjupt5nu14hth" path="res://addons/kenney_prototype_tools/scenes/dark/dark_05.tscn" id="2_xlmfj"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5xw2us1br3q" path="res://camera-effects/vignette.tscn" id="9_q1phu"]
 [ext_resource type="PackedScene" uid="uid://dv3o1u4hc11vn" path="res://camera-effects/sepia.tscn" id="10_rqewe"]
 [ext_resource type="PackedScene" uid="uid://cf1adbox8xy7e" path="res://camera-effects/grain_noise.tscn" id="11_3qobw"]
+[ext_resource type="PackedScene" uid="uid://dwppksddt4t0x" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
@@ -165,3 +166,6 @@ visible = false
 visible = false
 
 [node name="Grain Noise" parent="CanvasLayer" instance=ExtResource("11_3qobw")]
+visible = false
+
+[node name="Hexagon Mosaic" parent="CanvasLayer" instance=ExtResource("12_uvrob")]

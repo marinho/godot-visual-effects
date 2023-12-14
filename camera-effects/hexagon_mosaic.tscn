@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwppksddt4t0x"]
+
+[ext_resource type="Shader" path="res://camera-effects/hexagon-mosaic.gdshader" id="1_mlp7a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpu0h"]
+shader = ExtResource("1_mlp7a")
+shader_parameter/size = Vector2(16, 14)
+
+[node name="Hexagon Mosaic" type="ColorRect"]
+material = SubResource("ShaderMaterial_wpu0h")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

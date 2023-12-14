@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://chomobsn1vdo4"]
+[gd_scene load_steps=14 format=3 uid="uid://chomobsn1vdo4"]
 
 [ext_resource type="Environment" uid="uid://dxrk0u62aekxt" path="res://environments/black-environment.tres" id="1_k1rat"]
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
-[ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
+[ext_resource type="PackedScene" path="res://particles/hyperdrive.tscn" id="4_waeec"]
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
-[ext_resource type="PackedScene" uid="uid://ck5vuhi3tffgl" path="res://particles/sparks.tscn" id="6_n8y86"]
+[ext_resource type="PackedScene" uid="uid://1p0djdxytw42" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]
 [ext_resource type="PackedScene" uid="uid://jyk4uwcupa50" path="res://particles/impact.tscn" id="9_x76w5"]
+[ext_resource type="PackedScene" uid="uid://brf0ftux0hwy8" path="res://particles/shockwave.tscn" id="10_e5e8r"]
+[ext_resource type="PackedScene" uid="uid://10u16dtnpupt" path="res://particles/implosion.tscn" id="11_df01b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -23,7 +25,6 @@ size = Vector2(10, 10)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
 environment = ExtResource("1_k1rat")
-projection = 1
 current = true
 fov = 3.8
 size = 3.0
@@ -57,18 +58,18 @@ visible = false
 visible = false
 
 [node name="Sparks" parent="." instance=ExtResource("6_n8y86")]
-visible = false
 
 [node name="Rain" parent="." instance=ExtResource("8_pqidy")]
 visible = false
 
 [node name="Impact" parent="." instance=ExtResource("9_x76w5")]
+visible = false
 
-[node name="Shockwave" type="Node3D" parent="."]
+[node name="Shockwave" parent="." instance=ExtResource("10_e5e8r")]
+visible = false
+
+[node name="Implosion" parent="." instance=ExtResource("11_df01b")]
 visible = false
 
 [node name="Electricity" type="Node3D" parent="."]
-visible = false
-
-[node name="Implosion" type="Node3D" parent="."]
 visible = false

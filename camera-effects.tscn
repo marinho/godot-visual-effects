@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=22 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
 [ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3o1u4hc11vn" path="res://camera-effects/sepia.tscn" id="10_rqewe"]
 [ext_resource type="PackedScene" uid="uid://cf1adbox8xy7e" path="res://camera-effects/grain_noise.tscn" id="11_3qobw"]
 [ext_resource type="PackedScene" uid="uid://dwppksddt4t0x" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
+[ext_resource type="PackedScene" uid="uid://dxnm4sgbeu22g" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
@@ -201,6 +202,9 @@ visible = false
 
 [node name="Hexagon Mosaic" parent="CanvasLayer Effects" instance=ExtResource("12_uvrob")]
 
+[node name="Camera Shake" parent="CanvasLayer Effects" instance=ExtResource("14_qhoe5")]
+visible = false
+
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
 
 [node name="SideBar" type="HBoxContainer" parent="CanvasLayer UI"]
@@ -274,6 +278,12 @@ theme_override_font_sizes/font_size = 24
 button_pressed = true
 text = "Hexagon Mosaic"
 
+[node name="ButtonCameraShake" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Camera Shake"
+
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
 layout_mode = 2
@@ -314,4 +324,5 @@ libraries = {
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSepia" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonGrainNoise" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHexagonMosaic" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonCameraShake" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

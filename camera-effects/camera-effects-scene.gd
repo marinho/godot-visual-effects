@@ -9,6 +9,7 @@ extends Node3D
 @onready var buttonSepia = %ButtonSepia
 @onready var buttonGrainNoise = %ButtonGrainNoise
 @onready var buttonHexagonMosaic = %ButtonHexagonMosaic
+@onready var buttonCameraShake = %ButtonCameraShake
 
 @onready var effectChromaticAberration = $"CanvasLayer Effects/Chromatic Aberration"
 @onready var effectPixelate = $"CanvasLayer Effects/Pixelate"
@@ -16,6 +17,7 @@ extends Node3D
 @onready var effectSepia = $"CanvasLayer Effects/Sepia"
 @onready var effectGrainNoise = $"CanvasLayer Effects/Grain Noise"
 @onready var effectHexagonMosaic = $"CanvasLayer Effects/Hexagon Mosaic"
+@onready var effectCameraShake = $"CanvasLayer Effects/Camera Shake"
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sideBarMenu = $"CanvasLayer UI/SideBar/SideBar Menu"
@@ -38,6 +40,7 @@ func updateVisibleEffects(toggled_on):
 	effectSepia.visible = buttonSepia.button_pressed
 	effectGrainNoise.visible = buttonGrainNoise.button_pressed
 	effectHexagonMosaic.visible = buttonHexagonMosaic.button_pressed
+	effectCameraShake.visible = buttonCameraShake.button_pressed
 	updateEffectsLabel()
 
 func disableAllEffects():
@@ -47,6 +50,7 @@ func disableAllEffects():
 	buttonSepia.button_pressed = false
 	buttonGrainNoise.button_pressed = false
 	buttonHexagonMosaic.button_pressed = false
+	buttonCameraShake.button_pressed = false
 	updateEffectsLabel()
 
 
@@ -58,6 +62,7 @@ func updateEffectsLabel():
 		"Sepia" if buttonSepia.button_pressed else "",
 		"Grain Noise" if buttonGrainNoise.button_pressed else "",
 		"Hexagon Mosaic" if buttonHexagonMosaic.button_pressed else "",
+		"Camera Shake" if buttonCameraShake.button_pressed else "",
 	]
 	var text = " ".join(textParts)
 	labelVisibleEffects.text = "[center]" + text

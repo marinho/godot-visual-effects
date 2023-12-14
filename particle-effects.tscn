@@ -1,16 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://chomobsn1vdo4"]
+[gd_scene load_steps=18 format=3 uid="uid://chomobsn1vdo4"]
 
+[ext_resource type="Script" path="res://particles/particle-effects-scene.gd" id="1_62kg4"]
 [ext_resource type="Environment" uid="uid://dxrk0u62aekxt" path="res://environments/black-environment.tres" id="1_k1rat"]
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
 [ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
-[ext_resource type="PackedScene" uid="uid://ck5vuhi3tffgl" path="res://particles/sparks.tscn" id="6_n8y86"]
+[ext_resource type="PackedScene" uid="uid://1p0djdxytw42" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]
-[ext_resource type="PackedScene" uid="uid://jyk4uwcupa50" path="res://particles/impact.tscn" id="9_x76w5"]
-[ext_resource type="PackedScene" path="res://particles/shockwave.tscn" id="10_e5e8r"]
-[ext_resource type="PackedScene" path="res://particles/implosion.tscn" id="11_df01b"]
+[ext_resource type="PackedScene" uid="uid://xilvyurttymc" path="res://particles/impact.tscn" id="9_rjfb0"]
+[ext_resource type="PackedScene" uid="uid://r8y6qoevceyk" path="res://particles/shockwave.tscn" id="10_e5e8r"]
+[ext_resource type="PackedScene" uid="uid://b8468qkcraev" path="res://particles/implosion.tscn" id="11_df01b"]
+[ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="12_frhsd"]
+[ext_resource type="ButtonGroup" uid="uid://crqtlmwxkve6i" path="res://particles/particles_button_group.tres" id="13_k8na1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -18,60 +21,212 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1mtlo"]
 material = SubResource("StandardMaterial3D_njwlo")
-size = Vector2(10, 10)
+size = Vector2(20, 20)
 
-[node name="Particle Effects" type="Node3D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwnty"]
+bg_color = Color(0.278431, 0, 0.141176, 0.392157)
+
+[node name="Particle Effects Scene" type="Node3D"]
+script = ExtResource("1_62kg4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
+transform = Transform3D(0.707107, -0.40051, 0.582745, 0, 0.824126, 0.566406, -0.707107, -0.40051, 0.582745, 30, 30, 30)
 environment = ExtResource("1_k1rat")
+projection = 1
 current = true
 fov = 3.8
-size = 3.0
+size = 4.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 mesh = SubResource("PlaneMesh_1mtlo")
-skeleton = NodePath("../Shield")
+skeleton = NodePath("")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52, 0)
 size = Vector3(10, 1, 10)
 
-[node name="Smoke" parent="." instance=ExtResource("1_vs4eb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-visible = false
+[node name="Effects" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="Fire" parent="." instance=ExtResource("2_ua5o7")]
+[node name="Fire" parent="Effects" instance=ExtResource("2_ua5o7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 visible = false
 
-[node name="Hurricane" parent="." instance=ExtResource("3_1jf4n")]
+[node name="Hurricane" parent="Effects" instance=ExtResource("3_1jf4n")]
 visible = false
 
-[node name="Hyperdrive" parent="." instance=ExtResource("4_waeec")]
+[node name="Hyperdrive" parent="Effects" instance=ExtResource("4_waeec")]
 visible = false
 
-[node name="Shield" parent="." instance=ExtResource("5_iqqai")]
+[node name="Impact" parent="Effects" instance=ExtResource("9_rjfb0")]
 visible = false
 
-[node name="Sparks" parent="." instance=ExtResource("6_n8y86")]
+[node name="Implosion" parent="Effects" node_paths=PackedStringArray("Particles") instance=ExtResource("11_df01b")]
+Particles = []
 
-[node name="Rain" parent="." instance=ExtResource("8_pqidy")]
+[node name="Rain" parent="Effects" instance=ExtResource("8_pqidy")]
 visible = false
 
-[node name="Impact" parent="." instance=ExtResource("9_x76w5")]
+[node name="Shield" parent="Effects" instance=ExtResource("5_iqqai")]
 visible = false
 
-[node name="Shockwave" parent="." node_paths=PackedStringArray("Particles") instance=ExtResource("10_e5e8r")]
+[node name="Shockwave" parent="Effects" node_paths=PackedStringArray("Particles") instance=ExtResource("10_e5e8r")]
 visible = false
 Particles = []
 
-[node name="Implosion" parent="." node_paths=PackedStringArray("Particles") instance=ExtResource("11_df01b")]
+[node name="Smoke" parent="Effects" instance=ExtResource("1_vs4eb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
-Particles = []
 
-[node name="Electricity" type="Node3D" parent="."]
+[node name="Sparks" parent="Effects" instance=ExtResource("6_n8y86")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0.1, 0)
 visible = false
+
+[node name="Electricity" type="Node3D" parent="Effects"]
+visible = false
+
+[node name="CanvasLayer UI" type="CanvasLayer" parent="."]
+
+[node name="SideBar" type="HBoxContainer" parent="CanvasLayer UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="SideBar Menu" type="MarginContainer" parent="CanvasLayer UI/SideBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwnty")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ButtonFire" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Fire"
+
+[node name="ButtonHurricane" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Hurricane"
+
+[node name="ButtonHyperdrive" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Hyperdrive"
+
+[node name="ButtonImpact" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Impact"
+
+[node name="ButtonImplosion" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Implosion"
+
+[node name="ButtonRain" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Rain"
+
+[node name="ButtonShield" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Shield"
+
+[node name="ButtonShockwave" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Shockwave"
+
+[node name="ButtonSmoke" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Smoke"
+
+[node name="ButtonSparks" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Sparks"
+
+[node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+layout_mode = 2
+texture_normal = ExtResource("12_frhsd")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="BottomBar" type="MarginContainer" parent="CanvasLayer UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelVisibleEffects" type="RichTextLabel" parent="CanvasLayer UI/BottomBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonFire" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHurricane" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHyperdrive" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonImpact" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonImplosion" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRain" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonShield" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonShockwave" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSmoke" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSparks" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://10u16dtnpupt"]
+[gd_scene load_steps=21 format=3 uid="uid://b8468qkcraev"]
 
 [ext_resource type="Script" path="res://scripts/MultiParticles.cs" id="1_weson"]
 [ext_resource type="Texture2D" uid="uid://b8yqiftn6q2ij" path="res://addons/kenney_particle_pack/circle_05.png" id="2_qtlvw"]
@@ -23,8 +23,8 @@ curve = SubResource("Curve_7t07v")
 emission_shape = 2
 emission_sphere_radius = 3.0
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-radial_accel_min = 0.2
-radial_accel_max = 0.2
+radial_accel_min = 0.18
+radial_accel_max = 0.22
 radial_accel_curve = SubResource("CurveTexture_8froe")
 color = Color(0, 0.564706, 1, 1)
 alpha_curve = SubResource("CurveTexture_wtgks")
@@ -48,14 +48,14 @@ material = SubResource("StandardMaterial3D_blklt")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Curve" id="Curve_0jmg7"]
-_data = [Vector2(0.251318, 1), 0.0, 0.0, 0, 0, Vector2(0.991213, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.251318, 1), 0.0, 0.0, 0, 0, Vector2(0.898361, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_gf3su"]
 curve = SubResource("Curve_0jmg7")
 
 [sub_resource type="Gradient" id="Gradient_vj4no"]
-offsets = PackedFloat32Array(0.448141, 0.636008)
+offsets = PackedFloat32Array(0, 0.636008)
 colors = PackedColorArray(0, 0.894118, 1, 1, 0, 0.564706, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_8k4ey"]
@@ -83,30 +83,15 @@ color_ramp = SubResource("GradientTexture1D_8k4ey")
 alpha_curve = SubResource("CurveTexture_gf3su")
 emission_curve = SubResource("CurveTexture_ga1td")
 
-[sub_resource type="Gradient" id="Gradient_30bhn"]
-offsets = PackedFloat32Array(0.506744, 0.689788)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1pmsb"]
-gradient = SubResource("Gradient_30bhn")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5esa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egr1g"]
 transparency = 1
-blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_1pmsb")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+emission = Color(0, 0.682353, 1, 1)
+emission_energy_multiplier = 11.57
+rim_enabled = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_gvf03"]
-material = SubResource("StandardMaterial3D_k5esa")
+[sub_resource type="SphereMesh" id="SphereMesh_ik8yd"]
+material = SubResource("StandardMaterial3D_egr1g")
 
 [node name="Implosion" type="Node3D" node_paths=PackedStringArray("Particles")]
 script = ExtResource("1_weson")
@@ -125,4 +110,4 @@ amount = 1
 lifetime = 4.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_t7lly")
-draw_pass_1 = SubResource("QuadMesh_gvf03")
+draw_pass_1 = SubResource("SphereMesh_ik8yd")

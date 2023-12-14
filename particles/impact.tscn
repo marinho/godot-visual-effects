@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://jyk4uwcupa50"]
+[gd_scene load_steps=17 format=3 uid="uid://xilvyurttymc"]
 
-[ext_resource type="Texture2D" uid="uid://cpqufbjs2rf5t" path="res://addons/kenney_particle_pack/muzzle_01.png" id="1_nj335"]
-[ext_resource type="Texture2D" uid="uid://b8yqiftn6q2ij" path="res://addons/kenney_particle_pack/circle_05.png" id="2_6unvo"]
+[ext_resource type="Texture2D" uid="uid://bixgnuiv2dcuu" path="res://addons/kenney_particle_pack/muzzle_04.png" id="1_vpc1r"]
 
 [sub_resource type="Curve" id="Curve_lqnej"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.370492, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -10,26 +9,44 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_rymgb"]
 curve = SubResource("Curve_lqnej")
 
-[sub_resource type="Curve" id="Curve_mr68g"]
-_data = [Vector2(0, 0.521682), 0.0, 0.0, 0, 0, Vector2(0.144262, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_3ftq8"]
+max_value = 2.0
+_data = [Vector2(0, 0.0519054), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_7xpum"]
-curve = SubResource("Curve_mr68g")
+[sub_resource type="Curve" id="Curve_d7y1q"]
+_data = [Vector2(0.272131, 1), 0.0, 0.0, 0, 0, Vector2(0.386885, 0.666886), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_orjn8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_j5tl2"]
+curve_x = SubResource("Curve_3ftq8")
+curve_y = SubResource("Curve_d7y1q")
+curve_z = SubResource("Curve_orjn8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3tbj"]
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_7xpum")
+emission_shape_offset = Vector3(0, 1, 0)
+gravity = Vector3(0, -20, 0)
+scale_curve = SubResource("CurveXYZTexture_j5tl2")
 alpha_curve = SubResource("CurveTexture_rymgb")
-sub_emitter_mode = 2
-sub_emitter_amount_at_end = 1
+hue_variation_min = -0.5
+hue_variation_max = 0.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky36s"]
 transparency = 1
 blend_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.0392157)
-albedo_texture = ExtResource("1_nj335")
+albedo_texture = ExtResource("1_vpc1r")
 rim_enabled = true
 billboard_mode = 3
 billboard_keep_scale = true
@@ -41,35 +58,53 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_ky36s")
 center_offset = Vector3(0, 0.4, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iv2ux"]
+[sub_resource type="Curve" id="Curve_tsw8s"]
+_data = [Vector2(0, 0.812089), 0.0, 0.0, 0, 0, Vector2(0.501639, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.461892), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bum2j"]
+curve = SubResource("Curve_tsw8s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7no0b"]
 direction = Vector3(0, 2, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 3.0
+scale_curve = SubResource("CurveTexture_bum2j")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ojok"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ivdu"]
+load_path = "res://.godot/imported/circle_05.png-2d6c777c446ba2a583b61d30e52bc466.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhpkt"]
 transparency = 1
+blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_6unvo")
+albedo_texture = SubResource("CompressedTexture2D_4ivdu")
+rim_enabled = true
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_pmnps"]
-material = SubResource("StandardMaterial3D_6ojok")
+[sub_resource type="QuadMesh" id="QuadMesh_hvt0q"]
+material = SubResource("StandardMaterial3D_xhpkt")
 size = Vector2(0.1, 0.1)
 
-[node name="Impact" type="Node3D"]
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="Impact" type="GPUParticles3D"]
 amount = 10
-sub_emitter = NodePath("../GPUParticles3D2")
+sub_emitter = NodePath("GPUParticles3D2")
+speed_scale = 0.5
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_s3tbj")
 draw_pass_1 = SubResource("QuadMesh_ot0ot")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-process_material = SubResource("ParticleProcessMaterial_iv2ux")
-draw_pass_1 = SubResource("QuadMesh_pmnps")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7no0b")
+draw_pass_1 = SubResource("QuadMesh_hvt0q")

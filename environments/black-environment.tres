@@ -2,8 +2,9 @@
 
 [resource]
 background_mode = 1
+background_color = Color(0.466667, 0.466667, 0.466667, 1)
+background_energy_multiplier = 2.98
 glow_enabled = true
-glow_strength = 1.1
 glow_blend_mode = 0
 fog_light_energy = 0.82
 fog_sun_scatter = 0.15

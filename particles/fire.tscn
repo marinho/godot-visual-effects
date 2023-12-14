@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://52dsxhh2k7e1" path="res://addons/kenney_particle_pack/fire_01.png" id="1_q2wt5"]
 
 [sub_resource type="Gradient" id="Gradient_eonhu"]
-offsets = PackedFloat32Array(0, 0.201566, 0.78865, 1)
+offsets = PackedFloat32Array(0.104693, 0.238267, 0.78865, 1)
 colors = PackedColorArray(0, 0.356863, 1, 1, 0.894118, 0.290196, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_cmn7d"]
@@ -29,7 +29,7 @@ color_ramp = SubResource("GradientTexture1D_cmn7d")
 transparency = 1
 blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(2, 2, 2, 1)
+albedo_color = Color(1.5, 1.5, 1.5, 1)
 albedo_texture = ExtResource("1_q2wt5")
 billboard_mode = 3
 billboard_keep_scale = true

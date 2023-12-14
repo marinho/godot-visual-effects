@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=21 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
+[ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
 [ext_resource type="PackedScene" uid="uid://bjupt5nu14hth" path="res://addons/kenney_prototype_tools/scenes/dark/dark_05.tscn" id="2_xlmfj"]
 [ext_resource type="PackedScene" uid="uid://bhuxup1cbugbw" path="res://addons/kenney_prototype_tools/scenes/orange/orange_06.tscn" id="3_xj16f"]
 [ext_resource type="PackedScene" uid="uid://ct0k1os3fx251" path="res://addons/kenney_prototype_tools/scenes/purple/purple_03.tscn" id="4_paly4"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3o1u4hc11vn" path="res://camera-effects/sepia.tscn" id="10_rqewe"]
 [ext_resource type="PackedScene" uid="uid://cf1adbox8xy7e" path="res://camera-effects/grain_noise.tscn" id="11_3qobw"]
 [ext_resource type="PackedScene" uid="uid://dwppksddt4t0x" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
+[ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
@@ -23,9 +25,38 @@ albedo_color = Color(0.337255, 0.890196, 0.207843, 1)
 material = SubResource("StandardMaterial3D_u8hyj")
 size = Vector2(20, 20)
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24bae"]
+bg_color = Color(0.278431, 0, 0.141176, 0.392157)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[sub_resource type="Animation" id="Animation_7utnq"]
+resource_name = "camera_rotation"
+length = 24.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera Rotator:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_do3k3"]
+_data = {
+"camera_rotation": SubResource("Animation_7utnq")
+}
+
+[node name="Camera Effects Scene" type="Node3D"]
+script = ExtResource("1_ct3xk")
+
+[node name="Camera Rotator" type="Node3D" parent="."]
+transform = Transform3D(0.983115, -3.94809e-16, -0.182989, 3.38571e-16, 1, -3.38571e-16, 0.182989, 2.709e-16, 0.983115, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Camera Rotator"]
 transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573577, -0.707107, -0.40558, 0.579228, 29.8522, 29.8536, 29.8522)
 environment = SubResource("Environment_tln01")
 projection = 1
@@ -151,21 +182,136 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 [node name="Cube36" parent="Scene" instance=ExtResource("6_y7myb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer Effects" type="CanvasLayer" parent="."]
 
-[node name="Chromatic Aberration" parent="CanvasLayer" instance=ExtResource("7_uoado")]
+[node name="Chromatic Aberration" parent="CanvasLayer Effects" instance=ExtResource("7_uoado")]
 visible = false
 
-[node name="Pixelate" parent="CanvasLayer" instance=ExtResource("8_fshcg")]
+[node name="Pixelate" parent="CanvasLayer Effects" instance=ExtResource("8_fshcg")]
 visible = false
 
-[node name="Vignette" parent="CanvasLayer" instance=ExtResource("9_q1phu")]
+[node name="Vignette" parent="CanvasLayer Effects" instance=ExtResource("9_q1phu")]
 visible = false
 
-[node name="Sepia" parent="CanvasLayer" instance=ExtResource("10_rqewe")]
+[node name="Sepia" parent="CanvasLayer Effects" instance=ExtResource("10_rqewe")]
 visible = false
 
-[node name="Grain Noise" parent="CanvasLayer" instance=ExtResource("11_3qobw")]
+[node name="Grain Noise" parent="CanvasLayer Effects" instance=ExtResource("11_3qobw")]
 visible = false
 
-[node name="Hexagon Mosaic" parent="CanvasLayer" instance=ExtResource("12_uvrob")]
+[node name="Hexagon Mosaic" parent="CanvasLayer Effects" instance=ExtResource("12_uvrob")]
+
+[node name="CanvasLayer UI" type="CanvasLayer" parent="."]
+
+[node name="SideBar" type="HBoxContainer" parent="CanvasLayer UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="SideBar Menu" type="MarginContainer" parent="CanvasLayer UI/SideBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_24bae")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Button Disable Effects" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Disable Effects"
+
+[node name="ButtonRotatingCamera" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Rotating Camera"
+
+[node name="ButtonChromaticAberration" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Chromatic Aberration"
+
+[node name="ButtonPixelate" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pixelate"
+
+[node name="ButtonVignette" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Vignette"
+
+[node name="ButtonSepia" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sepia"
+
+[node name="ButtonGrainNoise" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Grain Noise"
+
+[node name="ButtonHexagonMosaic" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Hexagon Mosaic"
+
+[node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+layout_mode = 2
+texture_normal = ExtResource("14_ydbvf")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="BottomBar" type="MarginContainer" parent="CanvasLayer UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelVisibleEffects" type="RichTextLabel" parent="CanvasLayer UI/BottomBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Hexagon Mosaic"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_do3k3")
+}
+
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Disable Effects" to="." method="disableAllEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRotatingCamera" to="." method="toggleCameraRotating"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonChromaticAberration" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonPixelate" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonVignette" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSepia" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonGrainNoise" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHexagonMosaic" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

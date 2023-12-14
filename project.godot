@@ -12,12 +12,16 @@ config_version=5
 
 config/name="godot-visual-effects"
 run/main_scene="res://particle-effects.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="godot-visual-effects"
+
+[editor]
+
+movie_writer/movie_file="/Users/D065642/Lab/Godot/videos/output.avi"
 
 [filesystem]
 

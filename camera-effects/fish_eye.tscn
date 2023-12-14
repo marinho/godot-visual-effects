@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://pm0p6yeqy50d"]
+
+[ext_resource type="Shader" path="res://camera-effects/fish-eye.gdshader" id="1_otmae"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hpfy"]
+shader = ExtResource("1_otmae")
+shader_parameter/aspect = 1.5
+shader_parameter/distortion = 0.1
+shader_parameter/radius = 0.7
+shader_parameter/alpha = 1.0
+shader_parameter/crop = 0.71
+shader_parameter/crop_color = Color(1, 1, 1, 0.364706)
+
+[node name="Fish Eye" type="ColorRect"]
+material = SubResource("ShaderMaterial_2hpfy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

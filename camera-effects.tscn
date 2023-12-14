@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=25 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
 [ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 [ext_resource type="PackedScene" uid="uid://kli822acdl5m" path="res://camera-effects/blur.tscn" id="15_kmr3r"]
+[ext_resource type="PackedScene" uid="uid://pm0p6yeqy50d" path="res://camera-effects/fish_eye.tscn" id="16_nmfpv"]
 [ext_resource type="ButtonGroup" uid="uid://2yjsq45hqgit" path="res://camera-effects/camera_button_group.tres" id="16_r0ag1"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
@@ -326,6 +327,9 @@ visible = false
 visible = false
 
 [node name="Blur" parent="Effects" instance=ExtResource("15_kmr3r")]
+visible = false
+
+[node name="Fish Eye" parent="Effects" instance=ExtResource("16_nmfpv")]
 
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
 
@@ -367,7 +371,6 @@ button_group = ExtResource("16_r0ag1")
 text = "No Effect"
 
 [node name="ButtonChromaticAberration" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -383,7 +386,6 @@ button_group = ExtResource("16_r0ag1")
 text = "Pixelate"
 
 [node name="ButtonVignette" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -391,7 +393,6 @@ button_group = ExtResource("16_r0ag1")
 text = "Vignette"
 
 [node name="ButtonSepia" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -399,7 +400,6 @@ button_group = ExtResource("16_r0ag1")
 text = "Sepia"
 
 [node name="ButtonGrainNoise" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -407,7 +407,6 @@ button_group = ExtResource("16_r0ag1")
 text = "Grain Noise"
 
 [node name="ButtonHexagonMosaic" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -415,7 +414,6 @@ button_group = ExtResource("16_r0ag1")
 text = "Hexagon Mosaic"
 
 [node name="ButtonCameraShake" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
@@ -423,12 +421,18 @@ button_group = ExtResource("16_r0ag1")
 text = "Camera Shake"
 
 [node name="ButtonBlur" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 toggle_mode = true
 button_group = ExtResource("16_r0ag1")
 text = "Blur"
+
+[node name="Button Fish Eye" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
+text = "Fish Eye"
 
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
@@ -472,4 +476,5 @@ libraries = {
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHexagonMosaic" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonCameraShake" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonBlur" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Fish Eye" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

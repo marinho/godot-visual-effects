@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://jyk4uwcupa50"]
+
+[ext_resource type="Texture2D" uid="uid://cpqufbjs2rf5t" path="res://addons/kenney_particle_pack/muzzle_01.png" id="1_nj335"]
+[ext_resource type="Texture2D" uid="uid://b8yqiftn6q2ij" path="res://addons/kenney_particle_pack/circle_05.png" id="2_6unvo"]
+
+[sub_resource type="Curve" id="Curve_lqnej"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.370492, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rymgb"]
+curve = SubResource("Curve_lqnej")
+
+[sub_resource type="Curve" id="Curve_mr68g"]
+_data = [Vector2(0, 0.521682), 0.0, 0.0, 0, 0, Vector2(0.144262, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7xpum"]
+curve = SubResource("Curve_mr68g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3tbj"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_7xpum")
+alpha_curve = SubResource("CurveTexture_rymgb")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky36s"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.0392157)
+albedo_texture = ExtResource("1_nj335")
+rim_enabled = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ot0ot"]
+material = SubResource("StandardMaterial3D_ky36s")
+center_offset = Vector3(0, 0.4, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iv2ux"]
+direction = Vector3(0, 2, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ojok"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_6unvo")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_pmnps"]
+material = SubResource("StandardMaterial3D_6ojok")
+size = Vector2(0.1, 0.1)
+
+[node name="Impact" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 10
+sub_emitter = NodePath("../GPUParticles3D2")
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_s3tbj")
+draw_pass_1 = SubResource("QuadMesh_ot0ot")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_iv2ux")
+draw_pass_1 = SubResource("QuadMesh_pmnps")

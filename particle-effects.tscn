@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chomobsn1vdo4"]
+[gd_scene load_steps=12 format=3 uid="uid://chomobsn1vdo4"]
 
 [ext_resource type="Environment" uid="uid://dxrk0u62aekxt" path="res://environments/black-environment.tres" id="1_k1rat"]
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
 [ext_resource type="PackedScene" uid="uid://ck5vuhi3tffgl" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]
+[ext_resource type="PackedScene" uid="uid://jyk4uwcupa50" path="res://particles/impact.tscn" id="9_x76w5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -53,8 +54,21 @@ visible = false
 visible = false
 
 [node name="Shield" parent="." instance=ExtResource("5_iqqai")]
+visible = false
 
 [node name="Sparks" parent="." instance=ExtResource("6_n8y86")]
 visible = false
 
 [node name="Rain" parent="." instance=ExtResource("8_pqidy")]
+visible = false
+
+[node name="Impact" parent="." instance=ExtResource("9_x76w5")]
+
+[node name="Shockwave" type="Node3D" parent="."]
+visible = false
+
+[node name="Electricity" type="Node3D" parent="."]
+visible = false
+
+[node name="Implosion" type="Node3D" parent="."]
+visible = false

@@ -64,8 +64,9 @@ material = SubResource("StandardMaterial3D_lmrnj")
 size = Vector2(1.5, 1.5)
 
 [sub_resource type="Curve" id="Curve_8kor2"]
+min_value = -360.0
 max_value = 360.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_7lrlq"]
@@ -83,17 +84,16 @@ curve = SubResource("Curve_jwnch")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eugrd"]
 particle_flag_align_y = true
 particle_flag_rotate_y = true
-angle_max = 1.0
 angle_curve = SubResource("CurveTexture_7lrlq")
 direction = Vector3(0, 0, 0)
 angular_velocity_min = 0.1
 angular_velocity_max = 0.1
 angular_velocity_curve = SubResource("CurveTexture_1uygt")
 gravity = Vector3(0, 0, 0)
-color = Color(0, 0.647059, 1, 0.501961)
+color = Color(0.796078, 0.760784, 1, 0.501961)
 
 [sub_resource type="Gradient" id="Gradient_q8hwq"]
-offsets = PackedFloat32Array(0.58363, 0.6121, 0.651246)
+offsets = PackedFloat32Array(0.587189, 0.6121, 0.629893)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_irpch"]
@@ -106,6 +106,7 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lgl3"]
 transparency = 1
 blend_mode = 1
+vertex_color_use_as_albedo = true
 albedo_texture = SubResource("GradientTexture2D_irpch")
 billboard_keep_scale = true
 
@@ -115,7 +116,6 @@ size = Vector2(1.2, 1.2)
 orientation = 0
 
 [node name="Shield" type="Node3D"]
-visible = false
 
 [node name="Sphere" type="GPUParticles3D" parent="."]
 amount = 1

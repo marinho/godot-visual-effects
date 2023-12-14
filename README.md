@@ -32,25 +32,33 @@
 
 These effects should be place in a CanvasLayer object in any scene
 
-### Pixelate
-
-![Pixelate](./docs/images/camera-effects/pixelate.png)
-
-### Vignette (danger)
-
-![Vignette](./docs/images/camera-effects/vignette.png)
-
 ### Chromatic Aberration
 
 ![Chromatic Aberration](./docs/images/camera-effects/chromatic-aberration.png)
+
+### Grain Noise
+
+![Grain Noise](./docs/images/camera-effects/grain-noise.png)
+
+### Hexagon Mosaic
+
+![Hexagon Mosaic](./docs/images/camera-effects/hexagon-mosaic.png)
+
+### Pixelate
+
+![Pixelate](./docs/images/camera-effects/pixelate.png)
 
 ### Sepia
 
 ![Sepia](./docs/images/camera-effects/sepia.png)
 
-### Grain Noise
+### Vignette (danger)
 
-![Grain Noise](./docs/images/camera-effects/grain-noise.png)
+![Vignette](./docs/images/camera-effects/vignette.png)
+
+### Camera Shake
+
+<video src="./docs/images/camera-effects/camera-shake.mp4" width="1152" height="648" controls></video>
 
 ## License
 

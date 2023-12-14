@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ds5xw2us1br3q" path="res://camera-effects/vignette.tscn" id="9_q1phu"]
 [ext_resource type="PackedScene" uid="uid://dv3o1u4hc11vn" path="res://camera-effects/sepia.tscn" id="10_rqewe"]
 [ext_resource type="PackedScene" uid="uid://cf1adbox8xy7e" path="res://camera-effects/grain_noise.tscn" id="11_3qobw"]
-[ext_resource type="PackedScene" uid="uid://dwppksddt4t0x" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
-[ext_resource type="PackedScene" uid="uid://dxnm4sgbeu22g" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
+[ext_resource type="PackedScene" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
+[ext_resource type="PackedScene" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 
 [sub_resource type="Environment" id="Environment_tln01"]

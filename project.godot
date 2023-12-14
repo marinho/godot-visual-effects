@@ -15,18 +15,14 @@ run/main_scene="res://particle-effects.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=2304
-window/size/viewport_height=1296
-
 [dotnet]
 
 project/assembly_name="godot-visual-effects"
 
 [editor]
 
-movie_writer/movie_file="/Users/D065642/Lab/Godot/videos/output.avi"
+movie_writer/movie_file="C:/Users/mario/Games/Godot/videos/output.png"
+movie_writer/fps=4
 
 [filesystem]
 

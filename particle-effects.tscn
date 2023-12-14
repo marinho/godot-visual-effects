@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
-[ext_resource type="PackedScene" path="res://particles/hyperdrive.tscn" id="4_waeec"]
+[ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
-[ext_resource type="PackedScene" uid="uid://1p0djdxytw42" path="res://particles/sparks.tscn" id="6_n8y86"]
+[ext_resource type="PackedScene" uid="uid://ck5vuhi3tffgl" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]
 [ext_resource type="PackedScene" uid="uid://jyk4uwcupa50" path="res://particles/impact.tscn" id="9_x76w5"]
-[ext_resource type="PackedScene" uid="uid://brf0ftux0hwy8" path="res://particles/shockwave.tscn" id="10_e5e8r"]
-[ext_resource type="PackedScene" uid="uid://10u16dtnpupt" path="res://particles/implosion.tscn" id="11_df01b"]
+[ext_resource type="PackedScene" path="res://particles/shockwave.tscn" id="10_e5e8r"]
+[ext_resource type="PackedScene" path="res://particles/implosion.tscn" id="11_df01b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -65,11 +65,13 @@ visible = false
 [node name="Impact" parent="." instance=ExtResource("9_x76w5")]
 visible = false
 
-[node name="Shockwave" parent="." instance=ExtResource("10_e5e8r")]
+[node name="Shockwave" parent="." node_paths=PackedStringArray("Particles") instance=ExtResource("10_e5e8r")]
 visible = false
+Particles = []
 
-[node name="Implosion" parent="." instance=ExtResource("11_df01b")]
+[node name="Implosion" parent="." node_paths=PackedStringArray("Particles") instance=ExtResource("11_df01b")]
 visible = false
+Particles = []
 
 [node name="Electricity" type="Node3D" parent="."]
 visible = false

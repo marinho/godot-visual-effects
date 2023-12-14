@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=25 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="PackedScene" uid="uid://bydyult2k5rcb" path="res://addons/kenney_prototype_tools/scenes/green/green_01.tscn" id="1_61jfr"]
 [ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
 [ext_resource type="PackedScene" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
+[ext_resource type="Shader" path="res://camera-effects/blur.gdshader" id="15_4061k"]
+[ext_resource type="ButtonGroup" uid="uid://2yjsq45hqgit" path="res://camera-effects/camera_button_group.tres" id="16_r0ag1"]
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
@@ -25,6 +27,10 @@ albedo_color = Color(0.337255, 0.890196, 0.207843, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_wx71g"]
 material = SubResource("StandardMaterial3D_u8hyj")
 size = Vector2(20, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_petba"]
+shader = ExtResource("15_4061k")
+shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24bae"]
 bg_color = Color(0.278431, 0, 0.141176, 0.392157)
@@ -183,27 +189,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 [node name="Cube36" parent="Scene" instance=ExtResource("6_y7myb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
 
-[node name="CanvasLayer Effects" type="CanvasLayer" parent="."]
+[node name="Effects" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
-[node name="Chromatic Aberration" parent="CanvasLayer Effects" instance=ExtResource("7_uoado")]
+[node name="Chromatic Aberration" parent="Effects" instance=ExtResource("7_uoado")]
 visible = false
 
-[node name="Pixelate" parent="CanvasLayer Effects" instance=ExtResource("8_fshcg")]
+[node name="Pixelate" parent="Effects" instance=ExtResource("8_fshcg")]
 visible = false
 
-[node name="Vignette" parent="CanvasLayer Effects" instance=ExtResource("9_q1phu")]
+[node name="Vignette" parent="Effects" instance=ExtResource("9_q1phu")]
 visible = false
 
-[node name="Sepia" parent="CanvasLayer Effects" instance=ExtResource("10_rqewe")]
+[node name="Sepia" parent="Effects" instance=ExtResource("10_rqewe")]
 visible = false
 
-[node name="Grain Noise" parent="CanvasLayer Effects" instance=ExtResource("11_3qobw")]
+[node name="Grain Noise" parent="Effects" instance=ExtResource("11_3qobw")]
 visible = false
 
-[node name="Hexagon Mosaic" parent="CanvasLayer Effects" instance=ExtResource("12_uvrob")]
-
-[node name="Camera Shake" parent="CanvasLayer Effects" instance=ExtResource("14_qhoe5")]
+[node name="Hexagon Mosaic" parent="Effects" instance=ExtResource("12_uvrob")]
 visible = false
+
+[node name="Camera Shake" parent="Effects" instance=ExtResource("14_qhoe5")]
+visible = false
+
+[node name="Blur" type="ColorRect" parent="Effects"]
+material = SubResource("ShaderMaterial_petba")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
 
@@ -220,6 +236,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_24bae")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -229,11 +246,6 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button Disable Effects" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Disable Effects"
-
 [node name="ButtonRotatingCamera" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -241,47 +253,67 @@ theme_override_font_sizes/font_size = 24
 button_pressed = true
 text = "Rotating Camera"
 
-[node name="ButtonChromaticAberration" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="Button No Effect" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
+text = "No Effect"
+
+[node name="ButtonChromaticAberration" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Chromatic Aberration"
 
-[node name="ButtonPixelate" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonPixelate" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Pixelate"
 
-[node name="ButtonVignette" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonVignette" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Vignette"
 
-[node name="ButtonSepia" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonSepia" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Sepia"
 
-[node name="ButtonGrainNoise" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonGrainNoise" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Grain Noise"
 
-[node name="ButtonHexagonMosaic" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonHexagonMosaic" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-button_pressed = true
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Hexagon Mosaic"
 
-[node name="ButtonCameraShake" type="CheckButton" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+[node name="ButtonCameraShake" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
 text = "Camera Shake"
 
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
@@ -316,8 +348,8 @@ libraries = {
 "": SubResource("AnimationLibrary_do3k3")
 }
 
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Disable Effects" to="." method="disableAllEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRotatingCamera" to="." method="toggleCameraRotating"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button No Effect" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonChromaticAberration" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonPixelate" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonVignette" to="." method="updateVisibleEffects"]

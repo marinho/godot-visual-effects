@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
+
 void fragment() {
     // Readbackground and foreground images.
 	vec4 col = texture(SCREEN_TEXTURE, UV);

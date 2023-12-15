@@ -4,6 +4,7 @@ extends Node3D
 @onready var buttonSmoke = %ButtonSmoke
 @onready var effectsContainer = %Effects
 @onready var sideBarMenu = $"CanvasLayer UI/SideBar/SideBar Menu"
+@onready var camera = %Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,3 +35,7 @@ func toggleSideBar():
 	else:
 		sideBarMenu.show()
 	
+
+
+func slider_camera_zoom_value_changed(value):
+	camera.size = 10 - value

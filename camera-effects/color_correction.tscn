@@ -3,7 +3,8 @@
 [ext_resource type="Shader" path="res://camera-effects/color_correction.gdshader" id="1_hrc25"]
 
 [sub_resource type="Gradient" id="Gradient_2gmpi"]
-colors = PackedColorArray(6.80027e-06, 0.172575, 0.517032, 1, 0, 0.792157, 1, 1)
+offsets = PackedFloat32Array(0, 0.504587, 1)
+colors = PackedColorArray(0, 0.792157, 1, 1, 1, 0.788235, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qt6f0"]
 gradient = SubResource("Gradient_2gmpi")

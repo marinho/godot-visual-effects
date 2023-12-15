@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chomobsn1vdo4"]
+[gd_scene load_steps=19 format=3 uid="uid://chomobsn1vdo4"]
 
 [ext_resource type="Script" path="res://particles/particle-effects-scene.gd" id="1_62kg4"]
 [ext_resource type="Environment" uid="uid://dxrk0u62aekxt" path="res://environments/black-environment.tres" id="1_k1rat"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b8468qkcraev" path="res://particles/implosion.tscn" id="11_df01b"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="12_frhsd"]
 [ext_resource type="ButtonGroup" uid="uid://crqtlmwxkve6i" path="res://particles/particles_button_group.tres" id="13_k8na1"]
+[ext_resource type="PackedScene" uid="uid://dxbwdhrcv17yk" path="res://particles/ring_portal.tscn" id="13_ya4y5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -21,7 +22,7 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1mtlo"]
 material = SubResource("StandardMaterial3D_njwlo")
-size = Vector2(20, 20)
+size = Vector2(40, 40)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwnty"]
 bg_color = Color(0.278431, 0, 0.141176, 0.392157)
@@ -30,7 +31,8 @@ bg_color = Color(0.278431, 0, 0.141176, 0.392157)
 script = ExtResource("1_62kg4")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.40051, 0.582745, 0, 0.824126, 0.566406, -0.707107, -0.40051, 0.582745, 30, 30, 30)
+unique_name_in_owner = true
+transform = Transform3D(0.707107, -0.40558, 0.579228, 2.8571e-16, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 30, 30, 30)
 environment = ExtResource("1_k1rat")
 projection = 1
 current = true
@@ -65,6 +67,7 @@ visible = false
 visible = false
 
 [node name="Implosion" parent="Effects" node_paths=PackedStringArray("Particles") instance=ExtResource("11_df01b")]
+visible = false
 Particles = []
 
 [node name="Rain" parent="Effects" instance=ExtResource("8_pqidy")]
@@ -84,6 +87,8 @@ visible = false
 [node name="Sparks" parent="Effects" instance=ExtResource("6_n8y86")]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0.1, 0)
 visible = false
+
+[node name="Ring Portal" parent="Effects" instance=ExtResource("13_ya4y5")]
 
 [node name="Electricity" type="Node3D" parent="Effects"]
 visible = false
@@ -112,6 +117,19 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+
+[node name="Label Camera Zoom" type="RichTextLabel" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Camera Zoom"
+fit_content = true
+
+[node name="HSlider Camera Zoom" type="HSlider" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 8.0
+step = 0.1
+value = 6.0
 
 [node name="ButtonFire" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -193,6 +211,14 @@ toggle_mode = true
 button_group = ExtResource("13_k8na1")
 text = "Sparks"
 
+[node name="ButtonRingPortal" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Ring Portal"
+
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
 layout_mode = 2
@@ -219,6 +245,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 
+[connection signal="value_changed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/HSlider Camera Zoom" to="." method="slider_camera_zoom_value_changed"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonFire" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHurricane" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHyperdrive" to="." method="updateVisibleEffects"]
@@ -229,4 +256,5 @@ bbcode_enabled = true
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonShockwave" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSmoke" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSparks" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRingPortal" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

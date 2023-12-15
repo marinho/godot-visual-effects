@@ -44,10 +44,6 @@
 
 ![Sparks](./docs/images/particles/sparks.png)
 
-### Rain
-
-![Rain](./docs/images/particles/rain.png)
-
 ## Camera Effects
 
 These effects should be place in a CanvasLayer object in any scene

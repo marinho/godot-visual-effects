@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://1hpi0nexymhq"
+path="res://.godot/imported/pumpkin_orange_small.obj-f4e83071b49aef76ff6b7d7be53b016f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkin_orange_small.obj-f4e83071b49aef76ff6b7d7be53b016f.mesh"]
+
+source_file="res://addons/kaykit_halloween_bits/Assets/obj/pumpkin_orange_small.obj"
+dest_files=["res://.godot/imported/pumpkin_orange_small.obj-f4e83071b49aef76ff6b7d7be53b016f.mesh", "res://.godot/imported/pumpkin_orange_small.obj-f4e83071b49aef76ff6b7d7be53b016f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

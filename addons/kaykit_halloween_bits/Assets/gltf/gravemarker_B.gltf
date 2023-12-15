@@ -1,0 +1,136 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.4.50",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "gravemarker_B"
+        }
+    ],
+    "materials" : [
+        {
+            "name" : "HalloweenBits",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.6000000238418579
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.123",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "TEXCOORD_0" : 1,
+                        "NORMAL" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "halloweenbits_texture",
+            "uri" : "halloweenbits_texture.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 307,
+            "max" : [
+                0.393147349357605,
+                1.1794930696487427,
+                0.375389039516449
+            ],
+            "min" : [
+                -0.4097141921520233,
+                0,
+                -0.03777763620018959
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 307,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 307,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 408,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3684,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2456,
+            "byteOffset" : 3684,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3684,
+            "byteOffset" : 6140,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 816,
+            "byteOffset" : 9824,
+            "target" : 34963
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 10640,
+            "uri" : "gravemarker_B.bin"
+        }
+    ]
+}

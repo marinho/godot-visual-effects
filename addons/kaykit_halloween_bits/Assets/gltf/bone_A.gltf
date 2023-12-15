@@ -1,0 +1,136 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.4.50",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "bone_A"
+        }
+    ],
+    "materials" : [
+        {
+            "name" : "HalloweenBits",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.6000000238418579
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.543",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "TEXCOORD_0" : 1,
+                        "NORMAL" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "halloweenbits_texture",
+            "uri" : "halloweenbits_texture.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 199,
+            "max" : [
+                0.35349419713020325,
+                0.1380404233932495,
+                0.10033316910266876
+            ],
+            "min" : [
+                -0.35349464416503906,
+                -0.13803987205028534,
+                -0.10033319145441055
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 199,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 199,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 612,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2388,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1592,
+            "byteOffset" : 2388,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2388,
+            "byteOffset" : 3980,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1224,
+            "byteOffset" : 6368,
+            "target" : 34963
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 7592,
+            "uri" : "bone_A.bin"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://soc3452h8c0m"
+path="res://.godot/imported/arch_gate_right.obj-6bd856735c704e100994e3992f909e35.mesh"
+
+[deps]
+
+files=["res://.godot/imported/arch_gate_right.obj-6bd856735c704e100994e3992f909e35.mesh"]
+
+source_file="res://addons/kaykit_halloween_bits/Assets/obj/arch_gate_right.obj"
+dest_files=["res://.godot/imported/arch_gate_right.obj-6bd856735c704e100994e3992f909e35.mesh", "res://.godot/imported/arch_gate_right.obj-6bd856735c704e100994e3992f909e35.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

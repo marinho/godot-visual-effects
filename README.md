@@ -64,5 +64,6 @@ These effects should be place in a CanvasLayer object in any scene
 
 * Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack
 * Kenney Prototype Tools is copyrighted by Kenney, and can be found at https://github.com/GeroVeni/kenney_prototype_tools
+* Kaykit Halloween Bits is copyrighted by Kay Lousberg, and can be found at https://kaylousberg.itch.io/halloween-bits
 
 Except for that, the particles and code in this repository are available under MIT license for free usage.

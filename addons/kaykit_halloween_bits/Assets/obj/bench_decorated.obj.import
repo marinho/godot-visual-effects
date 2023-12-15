@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwfxn1ycyrs7m"
+path="res://.godot/imported/bench_decorated.obj-7d49d48a0522c794ae5a103bb4bc7300.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bench_decorated.obj-7d49d48a0522c794ae5a103bb4bc7300.mesh"]
+
+source_file="res://addons/kaykit_halloween_bits/Assets/obj/bench_decorated.obj"
+dest_files=["res://.godot/imported/bench_decorated.obj-7d49d48a0522c794ae5a103bb4bc7300.mesh", "res://.godot/imported/bench_decorated.obj-7d49d48a0522c794ae5a103bb4bc7300.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chitjvhmyx5rn"
+path="res://.godot/imported/grave_A.obj-31dd4573b7166e06ee2edecdbc32908b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grave_A.obj-31dd4573b7166e06ee2edecdbc32908b.mesh"]
+
+source_file="res://addons/kaykit_halloween_bits/Assets/obj/grave_A.obj"
+dest_files=["res://.godot/imported/grave_A.obj-31dd4573b7166e06ee2edecdbc32908b.mesh", "res://.godot/imported/grave_A.obj-31dd4573b7166e06ee2edecdbc32908b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

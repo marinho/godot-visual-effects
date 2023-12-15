@@ -26,8 +26,8 @@ project/assembly_name="godot-visual-effects"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/mario/Games/Godot/videos/output.png"
-movie_writer/fps=4
+movie_writer/movie_file="C:/Users/mario/Games/Godot/videos/output.avi"
+movie_writer/fps=30
 
 [filesystem]
 

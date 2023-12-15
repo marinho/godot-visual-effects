@@ -60,6 +60,18 @@ These effects should be place in a CanvasLayer object in any scene
 
 <video src="./docs/images/camera-effects/camera-shake.mp4" width="1152" height="648" controls></video>
 
+## Videos
+
+Click to jump to YouTube and watch the videos with all effects at the time of 14.12.2023
+
+### Particles
+
+[![alt text](https://img.youtube.com/vi/R18r8rhJ32g/0.jpg)](https://www.youtube.com/watch?v=R18r8rhJ32g)
+
+### Camera Effects
+
+[![alt text](https://img.youtube.com/vi/Vq8T-fPVdoA/0.jpg)](https://www.youtube.com/watch?v=Vq8T-fPVdoA)
+
 ## License
 
 * Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=21 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
 [ext_resource type="PackedScene" uid="uid://bvk23npqj2u2a" path="res://commons/halloween_village.tscn" id="2_8870h"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dfy4v47aijqqp" path="res://camera-effects/under_water.tscn" id="12_76kh0"]
 [ext_resource type="PackedScene" uid="uid://dwppksddt4t0x" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
 [ext_resource type="PackedScene" uid="uid://0ef8k2idbr15" path="res://camera-effects/mirage.tscn" id="13_rc6we"]
+[ext_resource type="PackedScene" uid="uid://b3uydqubrgd0g" path="res://camera-effects/color_correction.tscn" id="14_71y06"]
 [ext_resource type="PackedScene" uid="uid://dxnm4sgbeu22g" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 [ext_resource type="PackedScene" uid="uid://kli822acdl5m" path="res://camera-effects/blur.tscn" id="15_kmr3r"]
@@ -97,6 +98,9 @@ visible = false
 visible = false
 
 [node name="Mirage" parent="Effects" instance=ExtResource("13_rc6we")]
+visible = false
+
+[node name="Color Correction" parent="Effects" instance=ExtResource("14_71y06")]
 visible = false
 
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
@@ -216,6 +220,13 @@ toggle_mode = true
 button_group = ExtResource("16_r0ag1")
 text = "Mirage"
 
+[node name="Button Color Correction" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
+text = "Color Correction"
+
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
 layout_mode = 2
@@ -261,4 +272,5 @@ libraries = {
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Fish Eye" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Under Water" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Mirage" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Color Correction" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

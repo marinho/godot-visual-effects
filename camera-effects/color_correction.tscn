@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3uydqubrgd0g"]
+
+[ext_resource type="Shader" path="res://camera-effects/color_correction.gdshader" id="1_hrc25"]
+
+[sub_resource type="Gradient" id="Gradient_2gmpi"]
+colors = PackedColorArray(6.80027e-06, 0.172575, 0.517032, 1, 0, 0.792157, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qt6f0"]
+gradient = SubResource("Gradient_2gmpi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfnow"]
+shader = ExtResource("1_hrc25")
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/gradient = SubResource("GradientTexture2D_qt6f0")
+
+[node name="Color Correction" type="ColorRect"]
+material = SubResource("ShaderMaterial_bfnow")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

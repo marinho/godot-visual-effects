@@ -4,7 +4,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bla75"]
 shader = ExtResource("1_qe316")
-shader_parameter/ca_strength = 20.0
+shader_parameter/strength = 20.0
+shader_parameter/focus_radius = 0.0
+shader_parameter/focus_edge = 0.0
 
 [node name="Chromatic Aberration" type="ColorRect"]
 material = SubResource("ShaderMaterial_bla75")

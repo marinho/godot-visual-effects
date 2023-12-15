@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c051w6upl0t16"]
+[gd_scene load_steps=21 format=3 uid="uid://c051w6upl0t16"]
 
 [ext_resource type="Script" path="res://camera-effects/camera-effects-scene.gd" id="1_ct3xk"]
 [ext_resource type="PackedScene" uid="uid://bvk23npqj2u2a" path="res://commons/halloween_village.tscn" id="2_8870h"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ds5xw2us1br3q" path="res://camera-effects/vignette.tscn" id="9_q1phu"]
 [ext_resource type="PackedScene" uid="uid://dv3o1u4hc11vn" path="res://camera-effects/sepia.tscn" id="10_rqewe"]
 [ext_resource type="PackedScene" uid="uid://cf1adbox8xy7e" path="res://camera-effects/grain_noise.tscn" id="11_3qobw"]
+[ext_resource type="PackedScene" uid="uid://dfy4v47aijqqp" path="res://camera-effects/under_water.tscn" id="12_76kh0"]
 [ext_resource type="PackedScene" path="res://camera-effects/hexagon_mosaic.tscn" id="12_uvrob"]
+[ext_resource type="Shader" path="res://camera-effects/mirage.gdshader" id="13_rl5nt"]
 [ext_resource type="PackedScene" path="res://camera-effects/camera_shake.tscn" id="14_qhoe5"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="14_ydbvf"]
 [ext_resource type="PackedScene" uid="uid://kli822acdl5m" path="res://camera-effects/blur.tscn" id="15_kmr3r"]
@@ -16,6 +18,11 @@
 
 [sub_resource type="Environment" id="Environment_tln01"]
 glow_blend_mode = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03j04"]
+shader = ExtResource("13_rl5nt")
+shader_parameter/blur_amount = 0.9
+shader_parameter/strength = 0.01
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24bae"]
 bg_color = Color(0.278431, 0, 0.141176, 0.392157)
@@ -66,6 +73,7 @@ light_energy = 2.0
 unique_name_in_owner = true
 
 [node name="Chromatic Aberration" parent="Effects" instance=ExtResource("7_uoado")]
+visible = false
 
 [node name="Pixelate" parent="Effects" instance=ExtResource("8_fshcg")]
 visible = false
@@ -90,6 +98,17 @@ visible = false
 
 [node name="Fish Eye" parent="Effects" instance=ExtResource("16_nmfpv")]
 visible = false
+
+[node name="Under Water" parent="Effects" instance=ExtResource("12_76kh0")]
+visible = false
+
+[node name="Mirage" type="ColorRect" parent="Effects"]
+material = SubResource("ShaderMaterial_03j04")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
 
@@ -194,6 +213,13 @@ toggle_mode = true
 button_group = ExtResource("16_r0ag1")
 text = "Fish Eye"
 
+[node name="Button Under Water" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("16_r0ag1")
+text = "Under Water"
+
 [node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
 layout_mode = 2
@@ -237,4 +263,5 @@ libraries = {
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonCameraShake" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonBlur" to="." method="updateVisibleEffects"]
 [connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Fish Eye" to="." method="updateVisibleEffects"]
+[connection signal="toggled" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/Button Under Water" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

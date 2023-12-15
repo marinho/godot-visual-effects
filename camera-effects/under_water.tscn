@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfy4v47aijqqp"]
+
+[ext_resource type="Shader" path="res://camera-effects/under-water.gdshader" id="1_ufumj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmpr8"]
+shader = ExtResource("1_ufumj")
+shader_parameter/speed = 0.5
+shader_parameter/strength = 0.5
+shader_parameter/intensity = 0.5
+shader_parameter/maximumIterations = 5
+shader_parameter/showTiling = true
+shader_parameter/showYellowLine = false
+
+[node name="Under Water" type="ColorRect"]
+material = SubResource("ShaderMaterial_mmpr8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

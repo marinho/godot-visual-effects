@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-// inspired by: https://www.shadertoy.com/view/Xl3cDn
+// based on: https://www.shadertoy.com/view/Xl3cDn
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 

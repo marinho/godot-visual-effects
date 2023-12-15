@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-// inspired by: https://www.youtube.com/watch?v=aVzY6n3e19A
+// based on https://www.youtube.com/watch?v=aVzY6n3e19A
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 uniform float strength = 20.0;

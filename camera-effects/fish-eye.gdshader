@@ -4,7 +4,7 @@ shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
-// source: https://godotshaders.com/shader/2d-radial-distortion-fisheye-barrel/
+// based on: https://godotshaders.com/shader/2d-radial-distortion-fisheye-barrel/
 
 /////////////////////////////////
 // 2D Radial Distortion Shader //

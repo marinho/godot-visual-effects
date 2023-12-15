@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 
-// source: https://godotshaders.com/shader/world-environment-adjustments-for-viewporttextures/
+// based on: https://godotshaders.com/shader/world-environment-adjustments-for-viewporttextures/
 
 uniform float brightness : hint_range(0.0,8.0) = 1.0;
 uniform float contrast : hint_range(0.0,8.0) = 1.0;

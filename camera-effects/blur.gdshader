@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-// inspired by: https://godotshaders.com/shader/simple-blur-mixed-with-a-color/
+// based on https://godotshaders.com/shader/simple-blur-mixed-with-a-color/
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 

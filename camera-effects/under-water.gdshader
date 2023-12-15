@@ -9,7 +9,7 @@ uniform int maximumIterations : hint_range(0, 10) = 5;
 uniform bool showTiling = false;
 uniform bool showYellowLine = false;
 
-// source: https://www.shadertoy.com/view/MdlXz8
+// based on: https://www.shadertoy.com/view/MdlXz8
 
 #define TAU 6.28318530718
 

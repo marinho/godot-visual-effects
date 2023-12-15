@@ -32,9 +32,33 @@
 
 These effects should be place in a CanvasLayer object in any scene
 
+### Blur
+
+based on: https://godotshaders.com/shader/simple-blur-mixed-with-a-color/
+
+![Blur](./docs/images/camera-effects/blur.png)
+
+### Camera Shake
+
+![Camera Shake](./docs/images/camera-effects/camera-shake.png)
+
 ### Chromatic Aberration
 
+based on: https://www.youtube.com/watch?v=aVzY6n3e19A
+
 ![Chromatic Aberration](./docs/images/camera-effects/chromatic-aberration.png)
+
+### Color Correction
+
+based on: https://godotshaders.com/shader/world-environment-adjustments-for-viewporttextures/
+
+![Color Correction](./docs/images/camera-effects/color-correction.png)
+
+### Fish Eye
+
+based on: https://godotshaders.com/shader/2d-radial-distortion-fisheye-barrel/
+
+![Fish Eye](./docs/images/camera-effects/fish-eye.png)
 
 ### Grain Noise
 
@@ -42,27 +66,43 @@ These effects should be place in a CanvasLayer object in any scene
 
 ### Hexagon Mosaic
 
+based on: https://docs.godotengine.org/en/4.0/tutorials/shaders/custom_postprocessing.html
+
 ![Hexagon Mosaic](./docs/images/camera-effects/hexagon-mosaic.png)
 
+### Mirage
+
+![Mirage](./docs/images/camera-effects/mirage.png)
+
+### Monocolor
+
+![Monocolor](./docs/images/camera-effects/monocolor.png)
+
 ### Pixelate
+
+based on: https://www.youtube.com/watch?v=77F4ZjmQ07U
 
 ![Pixelate](./docs/images/camera-effects/pixelate.png)
 
 ### Sepia
 
+based on: https://www.shadertoy.com/view/Xl3cDn
+
 ![Sepia](./docs/images/camera-effects/sepia.png)
+
+### Under Water
+
+based on: https://www.shadertoy.com/view/MdlXz8
+
+![Under Water](./docs/images/camera-effects/under-water.png)
 
 ### Vignette (danger)
 
 ![Vignette](./docs/images/camera-effects/vignette.png)
 
-### Camera Shake
-
-<video src="./docs/images/camera-effects/camera-shake.mp4" width="1152" height="648" controls></video>
-
 ## Videos
 
-Click to jump to YouTube and watch the videos with all effects at the time of 14.12.2023
+Click on the images below to jump to YouTube and watch the videos with all effects at the time of 14.12.2023
 
 ### Particles
 
@@ -75,7 +115,6 @@ Click to jump to YouTube and watch the videos with all effects at the time of 14
 ## License
 
 * Kenney Particle Pack is copyrighted by Kenney, and can be found at https://kenney.nl/assets/particle-pack
-* Kenney Prototype Tools is copyrighted by Kenney, and can be found at https://github.com/GeroVeni/kenney_prototype_tools
 * Kaykit Halloween Bits is copyrighted by Kay Lousberg, and can be found at https://kaylousberg.itch.io/halloween-bits
 
 Except for that, the particles and code in this repository are available under MIT license for free usage.

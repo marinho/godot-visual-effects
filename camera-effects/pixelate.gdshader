@@ -4,7 +4,7 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 uniform int pixel_size = 1;
 uniform float alpha = 0.1;
 
-// inspired by https://www.youtube.com/watch?v=77F4ZjmQ07U
+// based on https://www.youtube.com/watch?v=77F4ZjmQ07U
 
 void fragment() {
 	vec2 VIEWPORT_SIZE = 1.0 / SCREEN_PIXEL_SIZE;

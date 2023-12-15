@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-// source: https://docs.godotengine.org/en/4.0/tutorials/shaders/custom_postprocessing.html
+// based on: https://docs.godotengine.org/en/4.0/tutorials/shaders/custom_postprocessing.html
 
 uniform vec2 size = vec2(32.0, 28.0);
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;

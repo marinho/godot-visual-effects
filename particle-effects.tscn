@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
-[ext_resource type="PackedScene" path="res://particles/hyperdrive.tscn" id="4_waeec"]
+[ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
 [ext_resource type="PackedScene" uid="uid://1p0djdxytw42" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b8468qkcraev" path="res://particles/implosion.tscn" id="11_df01b"]
 [ext_resource type="Texture2D" uid="uid://etnwfy334jt" path="res://addons/kenney_particle_pack/window_03.png" id="12_frhsd"]
 [ext_resource type="ButtonGroup" uid="uid://crqtlmwxkve6i" path="res://particles/particles_button_group.tres" id="13_k8na1"]
-[ext_resource type="PackedScene" uid="uid://dxbwdhrcv17yk" path="res://particles/ring_portal.tscn" id="13_ya4y5"]
+[ext_resource type="PackedScene" path="res://particles/ring_portal.tscn" id="13_ya4y5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njwlo"]
 shading_mode = 0
@@ -25,7 +25,7 @@ material = SubResource("StandardMaterial3D_njwlo")
 size = Vector2(40, 40)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwnty"]
-bg_color = Color(0.278431, 0, 0.141176, 0.392157)
+bg_color = Color(0.278431, 0, 0.141176, 0.470588)
 
 [node name="Particle Effects Scene" type="Node3D"]
 script = ExtResource("1_62kg4")
@@ -95,137 +95,6 @@ visible = false
 
 [node name="CanvasLayer UI" type="CanvasLayer" parent="."]
 
-[node name="SideBar" type="HBoxContainer" parent="CanvasLayer UI"]
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-
-[node name="SideBar Menu" type="MarginContainer" parent="CanvasLayer UI/SideBar"]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="CanvasLayer UI/SideBar/SideBar Menu"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pwnty")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer UI/SideBar/SideBar Menu"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="Label Camera Zoom" type="RichTextLabel" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center]Camera Zoom"
-fit_content = true
-
-[node name="HSlider Camera Zoom" type="HSlider" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-min_value = 2.0
-max_value = 8.0
-step = 0.1
-value = 6.0
-
-[node name="ButtonFire" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Fire"
-
-[node name="ButtonHurricane" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Hurricane"
-
-[node name="ButtonHyperdrive" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Hyperdrive"
-
-[node name="ButtonImpact" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Impact"
-
-[node name="ButtonImplosion" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Implosion"
-
-[node name="ButtonRain" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Rain"
-
-[node name="ButtonShield" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Shield"
-
-[node name="ButtonShockwave" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Shockwave"
-
-[node name="ButtonSmoke" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Smoke"
-
-[node name="ButtonSparks" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Sparks"
-
-[node name="ButtonRingPortal" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-toggle_mode = true
-button_group = ExtResource("13_k8na1")
-text = "Ring Portal"
-
-[node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
-custom_minimum_size = Vector2(64, 2.08165e-12)
-layout_mode = 2
-texture_normal = ExtResource("12_frhsd")
-ignore_texture_size = true
-stretch_mode = 4
-
 [node name="BottomBar" type="MarginContainer" parent="CanvasLayer UI"]
 anchors_preset = 12
 anchor_top = 1.0
@@ -245,16 +114,156 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 
+[node name="SideBar" type="HBoxContainer" parent="CanvasLayer UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="SideBar Menu" type="MarginContainer" parent="CanvasLayer UI/SideBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwnty")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer UI/SideBar/SideBar Menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label Camera Zoom" type="RichTextLabel" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Camera Zoom"
+fit_content = true
+
+[node name="HSlider Camera Zoom" type="HSlider" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 8.0
+step = 0.1
+value = 6.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(265, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonFire" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Fire"
+
+[node name="ButtonHurricane" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Hurricane"
+
+[node name="ButtonHyperdrive" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Hyperdrive"
+
+[node name="ButtonImpact" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Impact"
+
+[node name="ButtonImplosion" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Implosion"
+
+[node name="ButtonRain" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Rain"
+
+[node name="ButtonShield" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Shield"
+
+[node name="ButtonShockwave" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Shockwave"
+
+[node name="ButtonSmoke" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Smoke"
+
+[node name="ButtonSparks" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Sparks"
+
+[node name="ButtonRingPortal" type="Button" parent="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+button_group = ExtResource("13_k8na1")
+text = "Ring Portal"
+
+[node name="ToggleButton" type="TextureButton" parent="CanvasLayer UI/SideBar"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+layout_mode = 2
+texture_normal = ExtResource("12_frhsd")
+ignore_texture_size = true
+stretch_mode = 4
+
 [connection signal="value_changed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/HSlider Camera Zoom" to="." method="slider_camera_zoom_value_changed"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonFire" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHurricane" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonHyperdrive" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonImpact" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonImplosion" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRain" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonShield" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonShockwave" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSmoke" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonSparks" to="." method="updateVisibleEffects"]
-[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ButtonRingPortal" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonFire" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonHurricane" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonHyperdrive" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonImpact" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonImplosion" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonRain" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonShield" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonShockwave" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonSmoke" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonSparks" to="." method="updateVisibleEffects"]
+[connection signal="pressed" from="CanvasLayer UI/SideBar/SideBar Menu/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/ButtonRingPortal" to="." method="updateVisibleEffects"]
 [connection signal="pressed" from="CanvasLayer UI/SideBar/ToggleButton" to="." method="toggleSideBar"]

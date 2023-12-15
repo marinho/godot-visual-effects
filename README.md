@@ -12,9 +12,29 @@
 
 ![Hyperdrive](./docs/images/particles/hyperdrive.png)
 
+### Impact
+
+![Impact](./docs/images/particles/impact.png)
+
+### Implosion
+
+![Implosion](./docs/images/particles/implosion.png)
+
+### Rain
+
+![Rain](./docs/images/particles/rain.png)
+
+### Ring Portal
+
+![Ring Portal](./docs/images/particles/ring-portal.png)
+
 ### Shield
 
 ![Shield](./docs/images/particles/shield.png)
+
+### Shockwave
+
+![Shockwave](./docs/images/particles/shockwave.png)
 
 ### Smoke
 

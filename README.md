@@ -1,3 +1,11 @@
+## Overview
+
+All effects in this repository are maintained as simple and easy to understand examples, meant to be copied and adjusted for the actual use cases. You can use them as they are, but it's recommended to adjust parameters so that they look better and more fit for each particular game.
+
+Additionally, the textures used are from a third party free assets (look at the bottom). Beware in case you keep using them, make sure you respect their licenses accordingly.
+
+Also, look at the Camera, Environment and Light configurations, as they have a direct impact on how these effects look like, for instance on post processing settings.
+
 ## Particles
 
 ### Fire
@@ -46,7 +54,9 @@
 
 ## Camera Effects
 
-These effects should be place in a CanvasLayer object in any scene
+These effects should be place in a CanvasLayer object in any scene, behind other CanvasLayers for UI purpose.
+
+All effects bellow are enabled as a ColorRect node, expanded to full screen, with a ShaderMaterial with Shader in code. The shaders have parameters to change how the effects behave. Take a look, as they can change a lot how the effects look and work.
 
 ### Blur
 

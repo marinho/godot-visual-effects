@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ef8k2idbr15"]
+
+[ext_resource type="Shader" path="res://camera-effects/mirage.gdshader" id="1_cps4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03j04"]
+shader = ExtResource("1_cps4x")
+shader_parameter/blur_amount = 4.0
+shader_parameter/strength = 0.02
+shader_parameter/focus = 0.8
+shader_parameter/centerLine = 0.1
+shader_parameter/speed = 5.0
+shader_parameter/sepia = 0.3
+
+[node name="Mirage" type="ColorRect"]
+material = SubResource("ShaderMaterial_03j04")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

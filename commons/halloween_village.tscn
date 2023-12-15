@@ -460,7 +460,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
 
 [node name="tree_dead_large_decorated2" parent="Trees" instance=ExtResource("26_mv7qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -4, 0, -4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Trees/tree_dead_large_decorated2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746172, 1.95825, -0.422976)
+light_color = Color(0.964706, 0.6, 0, 1)
+light_energy = 10.0
+
+[node name="tree_dead_large_decorated3" parent="Trees" instance=ExtResource("26_mv7qm")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 11, 0, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Trees/tree_dead_large_decorated3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746172, 1.95825, -0.422976)
+light_color = Color(0.964706, 0.6, 0, 1)
+light_energy = 10.0
 
 [node name="tree_dead_medium2" parent="Trees" instance=ExtResource("27_3pc3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)

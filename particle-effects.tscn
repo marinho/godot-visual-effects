@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxj4cf67il71y" path="res://particles/smoke.tscn" id="1_vs4eb"]
 [ext_resource type="PackedScene" uid="uid://c4g1wgyk5ynef" path="res://particles/fire.tscn" id="2_ua5o7"]
 [ext_resource type="PackedScene" uid="uid://bdwxckix3vslo" path="res://particles/hurricane.tscn" id="3_1jf4n"]
-[ext_resource type="PackedScene" uid="uid://ce6advdj56x0c" path="res://particles/hyperdrive.tscn" id="4_waeec"]
+[ext_resource type="PackedScene" path="res://particles/hyperdrive.tscn" id="4_waeec"]
 [ext_resource type="PackedScene" uid="uid://b2dthk7xytysh" path="res://particles/shield.tscn" id="5_iqqai"]
 [ext_resource type="PackedScene" uid="uid://1p0djdxytw42" path="res://particles/sparks.tscn" id="6_n8y86"]
 [ext_resource type="PackedScene" uid="uid://1nbihtdf4hnv" path="res://particles/rain.tscn" id="8_pqidy"]

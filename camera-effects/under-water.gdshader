@@ -5,6 +5,7 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float speed : hint_range(0.0, 5.0) = .5;
 uniform float strength : hint_range(0.0, 1.0) = .5;
 uniform float intensity : hint_range(0.0, 1.0) = .5;
+uniform float distortionStrength : hint_range(0.0, 20.0) = 5.0;
 uniform int maximumIterations : hint_range(0, 10) = 5;
 uniform bool showTiling = false;
 uniform bool showYellowLine = false;
@@ -38,8 +39,8 @@ void fragment() {
 	}
 	c /= float(maximumIterations);
 	c = 1.17-pow(c, 1.4);
-	vec3 colour = vec3(pow(abs(c), 8.0));
-    colour = clamp(colour + vec3(0.0, 0.35, 0.5), 0.0, 1.0);
+	vec3 colorBase = vec3(pow(abs(c), 8.0));
+    vec3 colour = clamp(colorBase + vec3(0.0, 0.35, 0.5), 0.0, 1.0);
 
 	if (showTiling) {
 		// Flash tile borders...
@@ -53,7 +54,7 @@ void fragment() {
 			colour = mix(colour, vec3(1.0, 1.0, 0.0), (uv.x + uv.y) * first.x * first.y); // Yellow line
 	}
 	
-	vec4 pixelColor = texture(SCREEN_TEXTURE, UV);
+	vec4 pixelColor = textureLod(SCREEN_TEXTURE, UV, colorBase.r * distortionStrength);
 	vec3 appliedColor = mix(pixelColor.rgb, colour, strength);
     
 	COLOR = vec4(appliedColor, 1.0);
